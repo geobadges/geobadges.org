@@ -1,0 +1,55 @@
+$menu-width: 225px;
+$menu-link-color: #D7CDCC;
+
+.gb-menu {
+    background: red;
+    bottom: 0;
+    top: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    width: $menu-width;
+
+    .gb-menu-option {
+        background: purple;
+        height: calc(100% / 5);
+        position: relative;
+        width: $menu-width;
+
+        a {
+            display: block;
+            height: 100%;
+            position: relative;
+            width: 100%;
+
+            span {
+                color: $menu-link-color;
+                font-size: 18px;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &[href="/home"] {
+                background: #004F00;
+            }
+
+            &[href="/badges"] {
+                background: #008000;
+            }
+
+            &[href="/issuers"] {
+                background: #0F793D;
+            }
+
+            &[href="/account"] {
+                background: #6EB612;
+            }
+
+            &[href="/resources"] {
+                background: #5FA926;
+            }
+        }
+    }
+}
