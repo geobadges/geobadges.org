@@ -2,23 +2,23 @@
 <html>
   <head>
     <script>
-      // before anything else change ?p=/open-tasks to /open-tasks
+      // before anything else change ?p=/home to /home
       if (window.location.search.indexOf('p=') > -1) {
-        var pattern = /(\?|&)p=[/a-z-_0-9]{3,500}/
-        const newSearch = window.location.search
+        var pattern = /(\?|&)p=[/a-z-_0-9]{3,500}/;
+        var newSearch = window.location.search
           .replace(pattern, '') // remove p=... param from url
-          .replace(/^./, '?') // mark sure starting search param in a question mark
+          .replace(/^./, '?'); // mark sure starting search param in a question mark
 
-        // newPathName is usually something like '/open-tasks'
-        const newPathName = (
+        // newPathName is usually something like '/home'
+        var newPathName = (
           window.location.pathname + window.location.search.match(pattern)[0].substring(3)
-        ).replace('//', '/')
+        ).replace('//', '/');
 
-        // newUrl is usually something like .../federalist-stag/open-tasks?agencies=...
-        const newUrl = newPathName + newSearch
+        // newUrl is usually something like .../badges?skillLevel=...
+        var newUrl = newPathName + newSearch;
 
         /* global history */
-        history.replaceState({}, 'title', newUrl)
+        history.replaceState({}, 'title', newUrl);
       }
     </script>
 
