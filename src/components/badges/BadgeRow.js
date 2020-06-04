@@ -14,7 +14,7 @@ const BadgeRow = ({ badges, title }) => {
                     return <BadgeCard entityId={entityId} key={entityId}/>;
                 })}
             </div>
-        </div>  
+        </div>
     );
 };
 BadgeRow.propTypes = {

@@ -8,7 +8,7 @@ const Badges = ({ }) => {
   const badges = useBadges() || [];
   console.log("badges:", badges);
 
-  const filters = [
+  const rows = [
     // { title: 'Popular': filter: () => {}}
     {
       title: 'Beginner',
@@ -26,11 +26,11 @@ const Badges = ({ }) => {
       title: 'Makers',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('diy') || t.toLowerCase().includes('maker')))
     }
-  ];
+  ].filter(row => row.badges.length > 0);
 
   return (
     <section id="badges" className="page">
-      {filters.map(({ title, badges}) => {
+      {rows.map(({ title, badges}) => {
         return <BadgeRow badges={badges} title={title} key={title} />
       })}
     </section>
