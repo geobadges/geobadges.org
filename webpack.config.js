@@ -2,14 +2,13 @@ const { dirname, join, resolve } = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
+const DotEnvPlugin = require('dotenv-webpack');
 const EnvironmentPlugin = require('webpack/lib/EnvironmentPlugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const sass = require('sass')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = __dirname;
-
-require('dotenv-flow').config()
 
 // https://webpack.js.org/guides/public-path/
 let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
@@ -65,8 +64,9 @@ module.exports = {
       },
       {
         test: /\.svg$/,
+        // use: ['@svgr/webpack']
         loader: 'svg-inline-loader'
-      },      
+      },
       {
         test: /\.(png)$/,
         loader: 'file-loader',
@@ -131,8 +131,8 @@ module.exports = {
     ]
   },
   plugins: [
+    new DotEnvPlugin(),
     new DefinePlugin({
-      ENABLE_GOOGLE_ANALYTICS: process.env.ENABLE_GOOGLE_ANALYTICS === 'true',
       PUBLIC_PATH: JSON.stringify(PUBLIC_PATH)
     }),
     new CopyWebpackPlugin(patterns),
