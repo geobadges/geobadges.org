@@ -1,18 +1,28 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 
-import Home from './pages/Home';
-import Badges from './pages/Badges';
+import useLoggedIn from '../hooks/useLoggedIn';
+
+import HomePage from './pages/HomePage';
+import BadgesPage from './pages/BadgesPage';
+import IssuersPage from './pages/IssuersPage';
+import LoginBar from './LoginBar';
 import Menu from './Menu';
 
-const App = props => (
-  <>
-    <Switch>
-      <Route path="/home" render={() => (<Home/>)} />
-      <Route path="/badges" render={() => (<Badges/>)} />
-    </Switch>
-    <Menu />
-  </>
-);
+const App = props => {
+  const loggedIn = useLoggedIn();
+  return (
+    <>
+      <LoginBar />
+      <Switch>
+        <Route path="/home" render={() => <HomePage/>} />
+        <Route path="/badges" render={() => <BadgesPage/>} />
+        <Route path="/issuers" render={() => <IssuersPage/>} />
+        {loggedIn ? <Redirect to="/badges" /> : <Redirect to="/home" /> }
+      </Switch>
+      <Menu />
+    </>
+  );
+};
 
 export default App;
