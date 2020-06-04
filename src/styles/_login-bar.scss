@@ -1,0 +1,60 @@
+// $login-icon-size: $login-bar-height - 10px;
+
+.gb-login-bar {
+    background: #7E787C;
+    box-sizing: border-box;
+    height: $login-bar-height;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-top: 10px;
+    position: relative;
+    svg {
+        display: inline-block;
+        height: 100%;
+        width: auto;
+    }
+    .gb-login-bar-welcome-text-wrapper {
+        display: inline-block;
+        height: 100%;
+        position: relative;
+        width: 400px;
+        .gb-login-bar-welcome-text {
+            color: whitesmoke;
+            font-size: 18px;
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }    
+    .gb-login-bar-input-wrapper {
+        display: inline-block;
+        height: 100%;
+        padding-left: 10px;
+        position: relative;
+        width: 200px;
+        vertical-align: top;
+
+        .gb-login-bar-input {
+            background: transparent;
+            border-bottom: 2px solid black;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            color: white;
+            height: 75%;
+            padding-left: 10px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 180px;
+            &:focus {
+                // background: whitesmoke;
+            }
+        }
+        ::-webkit-input-placeholder {
+            color: lightgray;
+            font-weight: bold;
+        }
+    }
+}

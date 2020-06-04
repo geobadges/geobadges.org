@@ -1,0 +1,44 @@
+#issuers {  
+    .issuer {
+        // cursor: pointer;
+        display: inline-block;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        vertical-align: top;
+        width: 150px;
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+        .issuer-card-stack {
+            padding: 0;
+            .top-card {
+                // height: 145px;
+                background: white;
+                border-radius: 5px;
+                text-align: center;
+                vertical-align: top;
+                img {
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    width: calc(100% - 40px);
+                }
+                .issuer-name-bar {
+                    background: $dark-gray;
+                    color: $light-gray;
+                    font-size: 14px;
+                    height: 55px;
+                    // padding: 5px 10px;
+                    position: relative;
+                    .issuer-name {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 75%;
+                    }
+                }
+            }    
+        }
+    }
+}
