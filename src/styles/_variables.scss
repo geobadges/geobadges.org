@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,600;0,800;1,300&display=swap');;
+
 $login-bar-height: 50px;
 $menu-width: 225px;
 
@@ -6,5 +8,10 @@ $light-gray: #D7CDCC;
 $dark-gray: #2C333B;
 $background-gray: #e5e5e5;
 $medium-gray: #828282;
-$rusty-background: #AE341C;
+$rusty-background: rgb(174,52,28); //#AE341C;
 $orange: darkorange;
+
+
+//font
+$main-font: 'Kanit', sans-serif;
+$blue-font: #1d263b;
