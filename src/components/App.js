@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
+import pick from 'lodash.pick';
 
 import useLoggedIn from '../hooks/useLoggedIn';
 
@@ -9,7 +11,7 @@ import IssuersPage from './pages/IssuersPage';
 import LoginBar from './LoginBar';
 import Menu from './Menu';
 
-const App = props => {
+const App = ({ user }) => {
   const loggedIn = useLoggedIn();
   return (
     <>
@@ -25,4 +27,6 @@ const App = props => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => pick(state, 'user');
+
+export default connect(mapStateToProps)(App);
