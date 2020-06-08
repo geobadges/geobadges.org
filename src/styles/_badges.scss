@@ -7,55 +7,68 @@
         }
         .badge-row-carousel {
             position: relative;
-            .badge-card {
-                // background: $rusty-background;
-                // background-image: linear-gradient(#DACEC2, transparent);
-                background: darkgray;
+            .badge-card-wrapper {
                 display: inline-block;
-                height: 200px;
-                margin-left: 10px;
-                margin-top: 15px;
-                margin-right: 10px;
-                position: relative;
-                text-align: center;
-                width: 150px;
-                .badge-card-img-wrapper {
-                    height: 50%;
+                .badge-card {
+                    background: $rusty-background;
+                    background-image: linear-gradient(#DACEC2, transparent);
+                    // background: darkgray;
+                    cursor: pointer;
+                    display: inline-block;
+                    height: 200px;
+                    margin-left: 10px;
+                    margin-top: 15px;
+                    margin-right: 10px;
                     position: relative;
                     text-align: center;
-                    width: 100%;                 
-                    img {
-                        left: 50%;
-                        position: absolute;
-                        top: 50%;
-                        transform: translate(-50%, -50%);                        
-                        z-index: 2;
-                        width: 65%;
+                    transition: transform .2s; /* Animation */
+                    width: 150px;
+                    &:hover {
+                        transform: scale(1.1);   
+                        z-index: 99;                 
                     }
-                }
-                .badge-card-title {
-                    color: whitesmoke;
-                    font-size: 24px;
-                }
-                .badge-card-issuer {
-                    color: whitesmoke;
-                    font-size: 8px;
-                }
-                table {
-                    margin: 10px auto;
-                    .badge-stats-values {
-                        color: whitesmoke;
-                        font-size: 20px;
-                    }
-                    .badge-stats-keys {
-                        color: whitesmoke;
-                        font-size: 8px;
-                        td {
-                            padding-left: 7.5px;
-                            padding-right: 7.5px;                            
+                    .badge-card-img-wrapper {
+                        height: 50%;
+                        position: relative;
+                        text-align: center;
+                        width: 100%;                 
+                        img {
+                            left: 50%;
+                            position: absolute;
+                            top: 50%;
+                            transform: translate(-50%, -50%);                        
+                            z-index: 2;
+                            width: 65%;
                         }
                     }
-                }                
+                    .badge-card-title {
+                        color: whitesmoke;
+                        font-size: 24px;
+                    }
+                    .badge-card-issuer {
+                        color: whitesmoke;
+                        font-size: 8px;
+                    }
+                    table {
+                        margin: 10px auto;
+                        .badge-stats-values {
+                            color: whitesmoke;
+                            font-size: 20px;
+                        }
+                        .badge-stats-keys {
+                            color: whitesmoke;
+                            font-size: 8px;
+                            td {
+                                padding-left: 7.5px;
+                                padding-right: 7.5px;                            
+                            }
+                        }
+                    }                
+                }
+                .badge-card-back {
+                    background-image: linear-gradient(#F6F6F6, transparent);
+                    display: none;
+                }
             }
         }
     }
