@@ -8,3 +8,7 @@ $background-gray: #e5e5e5;
 $medium-gray: #828282;
 $rusty-background: #AE341C;
 $orange: darkorange;
+$overlay-gray: $background-gray;
+$close-sign-color: #7E787C;
+
+@import 'z-indexes';
