@@ -67,13 +67,13 @@ module.exports = {
         // use: ['@svgr/webpack']
         loader: 'svg-inline-loader'
       },
-      {
-        test: /\.(png)$/,
-        loader: 'file-loader',
-        options: {
-          outputPath: 'images'
-        }
-      },
+      // {
+      //   test: /\.(png)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     outputPath: 'images'
+      //   }
+      // },
       {
         test: /\.(s*)css$/,
         use: [
