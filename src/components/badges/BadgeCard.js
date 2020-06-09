@@ -44,9 +44,9 @@ const BadgeCard = ({ entityId }) => {
                     <table className="badge-stats">
                         <tbody>
                             <tr className="badge-stats-values">
-                                <td>{skill || '?'}</td>
-                                <td>{awarded || '?'}</td>
-                                <td>{duration || '?'}</td>
+                                <td>{skill ?? '-'}</td>
+                                <td>{awarded ?? '-'}</td>
+                                <td>{duration ?? '-'}</td>
                             </tr>
                             <tr className="badge-stats-keys">
                                 <td>level</td>
