@@ -1,6 +1,6 @@
 /* global URLSearchParams */
 import { push } from 'connected-react-router'
-import { convertObjToSortedSearchString, getURLSearchParamsAsSimpleObj } from 'utils/url-parsing'
+import { convertObjToSortedSearchString, getURLSearchParamsAsSimpleObj } from '../utils/url-parsing'
 
 export default function(state) {
   return dispatch => {

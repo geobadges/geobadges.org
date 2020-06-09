@@ -11,7 +11,8 @@ const BadgeRow = ({ badges, title }) => {
             <div className="badge-row-title">{title}</div>
             <div className="badge-row-carousel">
                 {badges.map(({ entityId }) => {
-                    return <BadgeCard entityId={entityId} key={entityId}/>;
+                    const key = title + '-' + entityId;
+                    return <BadgeCard entityId={entityId} key={key}/>;
                 })}
             </div>
         </div>

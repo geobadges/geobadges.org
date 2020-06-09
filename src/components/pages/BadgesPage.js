@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router';
+import classnames from 'classnames';
+import pick from 'lodash.pick';
 
 import BadgeRow from '../badges/BadgeRow';
 import useBadges from '../../hooks/useBadges';
+import useCurrentBadge from '../../hooks/useCurrentBadge';
 
-const Badges = ({ }) => {
-  const badges = useBadges() || [];
+import BadgeDetails from '../../components/badges/BadgeDetails';
+
+const Badges = (props) => {
+  // const location = useLocation();
+  console.log("starting to render Badges with props", props);
+  const badges = useBadges();
   console.log("badges:", badges);
+  const currentBadge = useCurrentBadge();
+  console.log("currentBadge:", currentBadge);
 
-  const rows = [
+  let rows = [
     // { title: 'Popular': filter: () => {}}
     {
       title: 'Beginner',
@@ -27,17 +39,28 @@ const Badges = ({ }) => {
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('diy') || t.toLowerCase().includes('maker')))
     }
   ].filter(row => row.badges.length > 0);
+  // rows = rows.concat(rows).concat(rows).concat(rows);
+
+  const selected = currentBadge !== null;
+  console.log("selected:", selected);
 
   return (
-    <section id="badges" className="page">
-      {rows.map(({ title, badges}) => {
-        return <BadgeRow badges={badges} title={title} key={title} />
-      })}
-    </section>
+    <>
+      <section id="badges" className={classnames('page', { 'no-scroll': selected })}>
+        {rows.map(({ title, badges}) => {
+          return <BadgeRow badges={badges} title={title} key={title} />
+        })}
+      </section>
+      <Route path={`/badges/:badgeId/:tab`} render={() => <BadgeDetails/>}/>
+    </>
   );
 };
 
 Badges.propTypes = {
 };
 
-export default Badges;
+const mapStateToProps = (state) => (
+  pick(state, ['currentBadge', 'badges', 'router'])
+);
+
+export default connect(mapStateToProps)(Badges);

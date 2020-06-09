@@ -5,6 +5,7 @@ import pick from 'lodash.pick';
 
 import useLoggedIn from '../hooks/useLoggedIn';
 
+import AccountPage from './pages/AccountPage';
 import HomePage from './pages/HomePage';
 import BadgesPage from './pages/BadgesPage';
 import IssuersPage from './pages/IssuersPage';
@@ -20,6 +21,7 @@ const App = ({ user }) => {
         <Route path="/home" render={() => <HomePage/>} />
         <Route path="/badges" render={() => <BadgesPage/>} />
         <Route path="/issuers" render={() => <IssuersPage/>} />
+        <Route path="/account" render={() => <AccountPage/>} />
         {loggedIn ? <Redirect to="/badges" /> : <Redirect to="/home" /> }
       </Switch>
       <Menu />

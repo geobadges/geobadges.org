@@ -9,5 +9,5 @@ export default function useBadges () {
     useEffectOnce(() => {
         dispatch(getBadges());
     });
-    return badges;
+    return badges || [];
 }

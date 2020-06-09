@@ -1,0 +1,147 @@
+$badge-details-box-padding: 40px;
+
+#badge {
+  background: $background-gray;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: $menu-width;
+  top: $login-bar-height;
+  transition-duration: 1s;
+  transform: translateX(-100%);
+  z-index: $badge-overlay-z-index;
+  &.badge-details-active {
+    transform: none;
+  }
+  #badge-details-close-icon {
+    cursor: pointer;
+    height: 30px;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    z-index: $badge-details-close-icon-z-index;
+
+    svg {
+      color: $close-sign-color;
+      font-size: 30px;
+    }
+  }
+  #badge-details-card-wrapper {
+    padding: 50px;
+    position: relative;
+    text-align: center;
+    .badge-details-card {
+      box-shadow: 4px 4px 4px rgba($dark-gray, 0.25);
+      display: inline-block;
+      height: 550px;
+      margin-right: 20px;
+      max-height: calc(100vh - (#{$login-bar-height} + 50px + 50px));
+      position: relative;
+      text-align: center;
+      vertical-align: top;
+      width: 350px;
+    }
+    #badge-details-card-front {
+      background: $rusty-background;
+      background-image: linear-gradient(#DACEC2, transparent);
+      .badge-details-card-img-wrapper {
+        height: 50%;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        img {
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 65%;
+        }
+      }
+      .badge-card-title {
+          color: whitesmoke;
+          font-size: 24px;
+      }
+      .badge-card-issuer {
+          color: whitesmoke;
+          font-size: 8px;
+      }
+      table {
+        margin: 10px auto;
+        .badge-stats-values {
+          color: whitesmoke;
+          font-size: 20px;
+        }
+        .badge-stats-keys {
+          color: whitesmoke;
+          font-size: 8px;
+          td {
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+          }
+        }
+      }
+    }
+    #badge-details-card-back {
+      background: $light-gray;
+      background-image: linear-gradient(#F6F6F6, #D7CDCC);
+      #badge-details-card-tabs {
+        height: 50px;
+        left: $badge-details-box-padding;
+        position: absolute;
+        right: $badge-details-box-padding;
+        top: 50px;
+        .badge-details-card-tab {
+          color: #7E787C;
+          cursor: pointer;
+          font-size: 24px;
+          font-weight: bold;
+          position: absolute;
+          text-decoration: none;
+          &:hover {
+            border-bottom: 3px solid #F64E21;
+          }
+          &.badge-details-tab-selected {
+            color: #F64E21;
+          }
+        }
+        #badge-details-overview-tab {
+          left: 35px;
+        }
+        #badge-details-criteria-tab {
+          right: 35px;
+        }
+      }
+      .badge-details-card-details-box {
+        background-image: linear-gradient(#F64E21, #AE341C);
+        bottom: 50px;
+        border-radius: 10px;
+        left: $badge-details-box-padding;
+        padding: 30px 15px;
+        position: absolute;
+        right: $badge-details-box-padding;
+        top: 100px;
+
+        .badge-expiration {
+          color: $light-gray;
+          font-size: 14px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .badge-description {
+          color: whitesmoke;
+          font-size: 12px;
+          overflow-y: auto;
+          padding: 15px;
+        }
+        .badge-criteria {
+          color: whitesmoke;
+          font-size: 12px;
+          overflow-y: auto;
+          padding: 15px;
+        }
+      }
+    }
+  }
+}

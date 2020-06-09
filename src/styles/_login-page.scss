@@ -1,0 +1,14 @@
+#login.page {
+  font-size: 14px;
+  padding-top: 375px;
+  text-align: center;
+  .react-sq {
+    height: 50px;
+    width: 50px;
+  }
+  input[type=text] {
+    &:hover, &:focus {
+      border: 2px solid #F64E21;
+    }
+  }
+}
