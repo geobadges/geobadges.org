@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,600;0,800;1,300&display=swap');;
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,600;0,800;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
 
 $login-bar-height: 50px;
 $menu-width: 225px;
@@ -15,6 +16,9 @@ $close-sign-color: #7E787C;
 
 //font
 $main-font: 'Kanit', sans-serif;
-$blue-font: #1d263b;
+$secondary-font: 'Poppins', sans-serif;
 
-@import 'z-indexes';
+$blue-font: #1d263b;
+$white-font: #D7CDCC;
+
+//@import 'z-indexes';
