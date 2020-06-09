@@ -10,9 +10,9 @@
     top:0;
     left:0;
     right:0;
-    z-index: 2;
+    z-index: $login-bar-z-index;
     position: fixed;
-    
+
     svg {
         display: inline-block;
         height: 100%;
@@ -23,7 +23,7 @@
         height: 100%;
         position: relative;
         width: 400px;
-        
+
         .gb-login-bar-welcome-text {
             font-family: $secondary-font;
             color: whitesmoke;
@@ -33,7 +33,7 @@
             top: 50%;
             transform: translateY(-50%);
         }
-    }    
+    }
     .gb-login-bar-input-wrapper {
         display: inline-block;
         height: 100%;
