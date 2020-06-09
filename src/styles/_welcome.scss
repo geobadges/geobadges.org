@@ -52,6 +52,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             color: $blue-font;
+            width: 100%;
             max-width: 600px;
             padding-bottom: 100px;
             
@@ -69,7 +70,7 @@
                 display: inline-block;
                 position: relative;
                 color: #F64E21;
-                //transform: translateY(-30%)
+                vertical-align: super;
             }
         
     }

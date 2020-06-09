@@ -39,6 +39,7 @@
     #video-content {
         font-family: $secondary-font;
         font-size: 1rem;
+        font-weight: 400 !important;
         position: absolute;
         padding-top: 330px;
         padding-left: 100px;
@@ -46,5 +47,8 @@
         top: 50px;
         line-height: 140%;
         color: $white-font;
+        * {
+            font-weight: 400 !important;
+        }
     }
 }
