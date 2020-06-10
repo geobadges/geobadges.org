@@ -6,6 +6,7 @@ import { useToggle } from 'react-use';
 import classnames from 'classnames';
 
 import setCurrentBadge from '../../actions/set-current-badge';
+import Stats from '../Stats';
 import useBadge from '../../hooks/useBadge';
 import useCurrentBadge from '../../hooks/useCurrentBadge';
 
@@ -41,20 +42,10 @@ const BadgeCard = ({ entityId }) => {
                     </div>
                     <div className="badge-card-title">{name}</div>
                     <div className="badge-card-issuer">{issuer.name}</div>
-                    <table className="badge-stats">
-                        <tbody>
-                            <tr className="badge-stats-values">
-                                <td>{skill ?? '-'}</td>
-                                <td>{awarded ?? '-'}</td>
-                                <td>{duration ?? '-'}</td>
-                            </tr>
-                            <tr className="badge-stats-keys">
-                                <td>level</td>
-                                <td>awarded</td>
-                                <td>duration</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <Stats
+                        keys={['level','awarded','duration']}
+                        values={[skill, awarded, duration]}
+                    />
                 </div>
             </Link>
         </div>

@@ -1,25 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useToggle } from 'react-use';
+import { connect } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
+import pick from 'lodash.pick';
 
-import Issuer from '../issuer/Stack';
+import IssuerCardStack from '../issuer/IssuerCardStack';
 import useIssuers from '../../hooks/useIssuers';
 
-const Issuers = ({ }) => {
-  const [selection, setSelected] = useState(null);
-  const issuers = useIssuers() || [];
-  console.log("issuers:", issuers);
+const IssuersPage = ({ currentIssuer, router }) => {
+  const match = useRouteMatch();
+  const { issuerId, issuerCard } = match.params;
+
+  const issuers = useIssuers();
+  const displayOverlay = issuerId || currentIssuer;
   return (
     <section id="issuers" className="page">
       {issuers.map(({ entityId }) => {
-        const selected = entityId === selection;
-        return <Issuer entityId={entityId} key={entityId} selected={selected}/>;
+        return <IssuerCardStack entityId={entityId} key={entityId}/>;
       })}
+      {displayOverlay && <div id="issuers-overlay"/>}
     </section>
   );
 };
 
-Issuers.propTypes = {
-};
+IssuersPage.propTypes = { };
 
-export default Issuers;
+const mapStateToProps = (state) => (
+  pick(state, ['currentIssuer', 'issuers', 'router', 'user'])
+);
+
+export default connect(mapStateToProps)(IssuersPage);

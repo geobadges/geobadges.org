@@ -9,5 +9,5 @@ export default function useIssuers () {
     useEffectOnce(() => {
         dispatch(getIssuers());
     });
-    return issuers;
+    return issuers || [] ;
 }

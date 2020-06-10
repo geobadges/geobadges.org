@@ -2,7 +2,7 @@
     background: $background-gray;
     box-sizing: border-box;
     margin-right: $menu-width;
-    min-height: calc(100vh - #{$login-bar-height});
+    min-height: 100vh;
     padding-bottom: 50px;
     padding-left: 130px;
     padding-right: 130px;

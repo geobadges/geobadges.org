@@ -11,6 +11,7 @@ import clearCurrentBadge from '../../actions/clear-current-badge';
 import setCurrentBadge from '../../actions/set-current-badge';
 import BadgeOverview from '../../components/badges/BadgeOverview';
 import BadgeCriteria from '../../components/badges/BadgeCriteria';
+import Stats from '../Stats.js';
 import useCurrentBadge from '../../hooks/useCurrentBadge';
 
 const BadgeDetails = (props) => {
@@ -59,20 +60,10 @@ const BadgeDetails = (props) => {
           </div>
           <div className="badge-card-title">{name}</div>
           <div className="badge-card-issuer">{issuer.name}</div>
-          <table className="badge-stats">
-              <tbody>
-                  <tr className="badge-stats-values">
-                      <td>{skill || '?'}</td>
-                      <td>{awarded || '?'}</td>
-                      <td>{duration || '?'}</td>
-                  </tr>
-                  <tr className="badge-stats-keys">
-                      <td>level</td>
-                      <td>awarded</td>
-                      <td>duration</td>
-                  </tr>
-              </tbody>
-          </table>
+          <Stats
+              keys={['level','awarded','duration']}
+              values={[skill, awarded, duration]}
+          />
         </div>
         <div id="badge-details-card-back" className="badge-details-card">
           <div id="badge-details-card-tabs">

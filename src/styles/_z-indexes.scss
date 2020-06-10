@@ -1,4 +1,18 @@
+$issuer-minimized-connect-card: 9;
+$issuer-minimized-stats-card: 10;
+$issuer-minimized-title-card: 11;
+
 $badge-hover-z-index: 30;
+$issuer-hover-z-index: 30;
+
 $badge-overlay-z-index: 40;
-$badge-details-close-icon-z-index: 50;
+$issuer-overlay-z-index: 40;
+$selected-issuer-card-stack-z-index: 45;
+
+$selected-issuer-card-z-index: 47;
+$issuer-expanded-bottom-card: 48;
+$issuer-expanded-middle-card: 49;
+$issuer-expanded-top-card: 50;
+
+$badge-details-close-icon-z-index: 51;
 $login-bar-z-index: 75;
