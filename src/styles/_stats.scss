@@ -1,0 +1,19 @@
+table.gb-stats {
+  margin: 10px auto;
+  width: 100%;
+  tbody {
+    width: 100%;
+    .gb-stats-values {
+      font-family: 'Poppins';
+      font-size: 20px;
+    }
+    .gb-stats-keys {
+      font-family: 'Poppins';
+      font-size: 8px;
+      td {
+          padding-left: 7.5px;
+          padding-right: 7.5px;
+      }
+    }
+  }
+}

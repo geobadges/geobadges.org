@@ -20,7 +20,7 @@ const App = ({ user }) => {
       <Switch>
         <Route path="/home" render={() => <HomePage/>} />
         <Route path="/badges" render={() => <BadgesPage/>} />
-        <Route path="/issuers" render={() => <IssuersPage/>} />
+        <Route path="/issuers/:issuerId?/:issuerCard?" render={() => <IssuersPage/>} />
         <Route path="/account" render={() => <AccountPage/>} />
         {loggedIn ? <Redirect to="/badges" /> : <Redirect to="/home" /> }
       </Switch>
