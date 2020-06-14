@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaUserCircle } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import pick from 'lodash.pick';
 
 import LoginBarInput from './LoginBarInput';
 import login from '../actions/login';
@@ -10,10 +11,9 @@ import useLoggedIn from '../hooks/useLoggedIn';
 const DEFAULT_USERNAME = process.env.GEOBADGES_USER || "";
 const DEFAULT_PASSWORD = process.env.GEOBADGES_PASSWORD || "";
 
-const LoginBar = ({ }) => {
+const LoginBar = ({ user }) => {
+    console.log("rendering LoginBar with user:", user);
     const dispatch = useDispatch();
-    const user = useSelector(state => state.user);
-    console.log("user:", user);
 
     const loggedIn = useLoggedIn();
     const [username, setUsername] = useState(DEFAULT_USERNAME);
@@ -59,8 +59,8 @@ const LoginBar = ({ }) => {
     }
 };
 
-LoginBar.propTypes = {
+LoginBar.propTypes = { };
 
-};
+const mapStateToProps = (state) => pick(state, ['user']);
 
-export default LoginBar;
+export default connect(mapStateToProps)(LoginBar);

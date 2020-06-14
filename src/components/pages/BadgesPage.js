@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import classnames from 'classnames';
 import pick from 'lodash.pick';
 
+import { BadgesContext } from '../../context/badges';
 import BadgeRow from '../badges/BadgeRow';
 import useBadges from '../../hooks/useBadges';
 import useCurrentBadge from '../../hooks/useCurrentBadge';
@@ -13,6 +14,7 @@ import useCurrentBadge from '../../hooks/useCurrentBadge';
 import BadgeDetails from '../../components/badges/BadgeDetails';
 
 const Badges = (props) => {
+  // console.log("context is:", useContext(BadgesContext));
   // const location = useLocation();
   console.log("starting to render Badges with props", props);
   const badges = useBadges();

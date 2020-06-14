@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
+import { push } from 'connected-react-router';
 import { Link } from 'react-router-dom';
 import pick from 'lodash.pick';
+import { useSearchParam } from 'react-use';
 
 import Pixel from '../Pixel';
 import Text from '../Text';
@@ -20,15 +22,18 @@ const LoginPage = ({ user, router }) => {
   const [email, setEmail] = useState(DEFAULT_USERNAME);
   const [password, setPassword] = useState(DEFAULT_PASSWORD);
 
+  console.log("router:", router);
+  const next = useSearchParam('next');
+
   const handleLogin = () => {
     if (email !== "" && password !== "") {
-      dispatch(login({ username: email, password }));
+      dispatch(login({ username: email, password, next }));
     }
   };
 
   return (
     <section id="login" className="page">
-      <div className="react-square-grid">
+      <div className="react-square-grid" style={{ height: `${7.5 * 50}px`}}>
         <Pixel opacity={1} row={1} column={4}/>
 
         <Pixel opacity={.5} row={2} column={2}/>

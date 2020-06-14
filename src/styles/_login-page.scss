@@ -1,10 +1,12 @@
 #login.page {
   font-size: 14px;
-  padding-top: 375px;
   text-align: center;
-  .react-sq {
-    height: 50px;
-    width: 50px;
+  .react-square-grid {
+    position: relative;
+    .react-sq {
+      height: 50px;
+      width: 50px;
+    }
   }
   input[type=text] {
     &:hover, &:focus {

@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
-import { useRouteMatch } from 'react-router-dom';
 import classnames from 'classnames';
+import pick from 'lodash.pick';
 
 import useIssuer from '../../hooks/useIssuer';
+import useRouteMatchParams from '../../hooks/useRouteMatchParams';
 
-const ConnectCard = ({ entityId }) => {
+const ConnectCard = ({ entityId, router }) => {
     const dispatch = useDispatch();
 
-    const match = useRouteMatch();
-    const { issuerId, issuerCard } = match.params;
+    const { issuerId, issuerCard } = useRouteMatchParams();
     const isIssuerSelected = issuerId === entityId;
     const isCardSelected = isIssuerSelected && issuerCard === 'connect';
 
@@ -25,9 +25,11 @@ const ConnectCard = ({ entityId }) => {
     );
 
     const handleClick = () => {
-        console.log("clicked connect");
         if (isIssuerSelected && !isCardSelected) {
-            dispatch(push(`/issuers/${entityId}/connect`));
+            const url = `/issuers/${entityId}/connect`;
+            if (router.location.pathname !== url) {
+                dispatch(push(url));
+            }
         }
     };
     return (
@@ -46,4 +48,6 @@ ConnectCard.propTypes = {
     entityId: PropTypes.string.isRequired,
 };
 
-export default ConnectCard;
+const mapStateToProps = state => pick(state, ['issuers', 'router', 'user']);
+
+export default connect(mapStateToProps)(ConnectCard);

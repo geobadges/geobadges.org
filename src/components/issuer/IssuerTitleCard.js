@@ -1,22 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
-import { useHistory, useRouteMatch } from "react-router-dom";
 import classnames from 'classnames';
+import pick from 'lodash.pick';
 
 import useIssuer from '../../hooks/useIssuer';
+import useRouteMatchParams from '../../hooks/useRouteMatchParams';
 
-const IssuerTitleCard = ({ entityId }) => {
+const IssuerTitleCard = ({ entityId, router }) => {
+    console.log("starting IssuerTitleCard with router:", router);
     const dispatch = useDispatch();
     const { name, image } = useIssuer(entityId);
     const handleClick = () => {
         const url = `/issuers/${entityId}/title`;
-        dispatch(push(url));
+        if (router.location.pathname !== url) {
+            dispatch(push(url));
+        }
     };
 
-    const match = useRouteMatch();
-    const { issuerId, issuerCard } = match.params;
+    const { issuerId, issuerCard }  = useRouteMatchParams();
     const isIssuerSelected = issuerId === entityId;
     const isCardSelected = isIssuerSelected && issuerCard === 'title';
 
@@ -41,4 +44,6 @@ IssuerTitleCard.propTypes = {
     entityId: PropTypes.string.isRequired
 };
 
-export default IssuerTitleCard;
+const mapStateToProps = state => pick(state, ['issuers', 'router', 'user']);
+
+export default connect(mapStateToProps)(IssuerTitleCard);

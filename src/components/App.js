@@ -6,17 +6,19 @@ import pick from 'lodash.pick';
 import useLoggedIn from '../hooks/useLoggedIn';
 
 import AccountPage from './pages/AccountPage';
+import ErrorBar from './ErrorBar';
 import HomePage from './pages/HomePage';
 import BadgesPage from './pages/BadgesPage';
 import IssuersPage from './pages/IssuersPage';
 import LoginBar from './LoginBar';
 import Menu from './Menu';
 
-const App = ({ user }) => {
+const App = () => {
   const loggedIn = useLoggedIn();
   return (
     <>
       <LoginBar />
+      <ErrorBar />
       <Switch>
         <Route path="/home" render={() => <HomePage/>} />
         <Route path="/badges" render={() => <BadgesPage/>} />
@@ -29,6 +31,4 @@ const App = ({ user }) => {
   );
 };
 
-const mapStateToProps = (state) => pick(state, 'user');
-
-export default connect(mapStateToProps)(App);
+export default App;
