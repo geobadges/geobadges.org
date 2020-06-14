@@ -1,31 +1,32 @@
 // $login-icon-size: $login-bar-height - 10px;
-#login-bar-background {
+.login-bar-background {
     background: linear-gradient(to right, #6EB612, #004F00);
     height: $login-bar-height;
-    z-index: -1;
+    top:0;
+    left:0;
+    right:0;
+    z-index: $login-bar-z-index;
+    position: fixed;
     
     .gb-login-bar {
-        background: #7E787C;
+        background: $light-gray;
         box-sizing: border-box;
-        height: $login-bar-height;
+        height: calc(#{$login-bar-height} - 5px);
         width: 100%;
         padding-bottom: 10px;
         padding-left: 50px;
         padding-top: 10px;
-        top:0;
-        left:0;
-        right:0;
-        z-index: $login-bar-z-index;
-        position: fixed;
+
     
         svg {
             display: inline-block;
+            fill: $blue-font;
             height: 100%;
             width: auto;
         }
         .gb-login-bar-welcome-text-wrapper {
             display: inline-block;
-            height: 100%;
+            height: 95%;
             position: relative;
             width: 400px;
     
@@ -49,11 +50,11 @@
     
             .gb-login-bar-input {
                 background: transparent;
-                border-bottom: 2px solid black;
+                border-bottom: 1px solid $medium-gray;
                 border-left: none;
                 border-right: none;
                 border-top: none;
-                color: white;
+                color: $blue-font;
                 height: 75%;
                 padding-left: 10px;
                 position: absolute;
