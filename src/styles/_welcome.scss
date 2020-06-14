@@ -71,6 +71,11 @@
                 position: relative;
                 color: #F64E21;
                 vertical-align: super;
+                
+                &:hover {
+                    transform: translate(5px, 0px);
+                    transition: 0.5s;
+                }
             }
         
     }

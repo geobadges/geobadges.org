@@ -43,6 +43,7 @@
                     }
                     .badge-card-title {
                         color: whitesmoke;
+                        font-family: $main-font;
                         font-size: 18px;
                         overflow: hidden;
                         padding: 0px 10px;
@@ -51,10 +52,14 @@
                     }
                     .badge-card-issuer {
                         color: whitesmoke;
+                        font-family: $main-font;
                         font-size: 8px;
                     }
                     table {
+                        font-family: $secondary-font;
                         margin: 10px auto;
+                        padding-top: 10%;
+                        line-height:1;
                         .gb-stats-values {
                             color: whitesmoke;
                             font-size: 20px;
