@@ -1,5 +1,6 @@
 const { dirname, join, resolve } = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CnameWebpackPlugin = require('cname-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 const DotEnvPlugin = require('dotenv-webpack');
@@ -34,6 +35,32 @@ const patterns = [
     to: 'polyfills/url-search-params.js'
   }
 ];
+
+const plugins = [
+  new DotEnvPlugin(),
+  new DefinePlugin({
+    PUBLIC_PATH: JSON.stringify(PUBLIC_PATH)
+  }),
+  new CopyWebpackPlugin(patterns),
+  new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
+  new HtmlWebpackPlugin({
+    hash: true,
+    template: './src/index.html',
+    templateParameters: {
+      PUBLIC_PATH
+    },
+    title: 'geobadges.org',
+    minify: {
+      removeScriptTypeAttributes: true
+    }
+  })
+];
+
+if (process.env.CNAME) {
+  plugins.push(new CnameWebpackPlugin({
+    domain: process.env.CNAME
+  }));
+}
 
 // create sitemap
 module.exports = {
@@ -130,25 +157,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new DotEnvPlugin(),
-    new DefinePlugin({
-      PUBLIC_PATH: JSON.stringify(PUBLIC_PATH)
-    }),
-    new CopyWebpackPlugin(patterns),
-    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/index.html',
-      templateParameters: {
-        PUBLIC_PATH
-      },
-      title: 'geobadges.org',
-      minify: {
-        removeScriptTypeAttributes: true
-      }
-    })
-  ],
+  plugins,
   watchOptions: {
     ignored: ['plugins']
   }

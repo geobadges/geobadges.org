@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
-import { push } from 'connected-react-router';
 import { Link } from 'react-router-dom';
 import pick from 'lodash.pick';
 import { useSearchParam } from 'react-use';
+import { Redirect } from 'react-router';
 
 import Pixel from '../Pixel';
+import Rect from '../Rect';
 import Text from '../Text';
+import TextBox from '../TextBox';
 import TextInput from '../TextInput';
 import StylishButton from '../StylishButton';
+import InputBox from '../InputBox';
 
 import login from '../../actions/login';
 
@@ -31,6 +34,10 @@ const LoginPage = ({ user, router }) => {
     }
   };
 
+  if (user) {
+    return <Redirect to={next ? next : '/account/profile/settings'}/>;
+  }
+
   return (
     <section id="login" className="page">
       <div className="react-square-grid" style={{ height: `${7.5 * 50}px`}}>
@@ -43,50 +50,36 @@ const LoginPage = ({ user, router }) => {
         <Pixel opacity={.64} row={3} column={3}/>
 
         <Pixel opacity={1} row={4} column={2}/>
-        <Pixel opacity={1} row={4} column={4}/>
-        <Pixel opacity={1} row={4} column={5}/>
-        <Pixel opacity={.2} row={4} column={6}/>
-        <Pixel opacity={.2} row={4} column={7}/>
-        <Pixel opacity={.2} row={4} column={8}/>
-        <Pixel opacity={.2} row={4} column={9}/>
-        <Pixel opacity={.2} row={4} column={10}/>
-        <Pixel opacity={.2} row={4} column={11}/>
-        <Text row={4} columnStart={4} columnEnd={5}>EMAIL</Text>
-        <TextInput
+
+        <TextBox opacity={1} row={4} columnStart={4} columnEnd={5} text="EMAIL"/>
+        <InputBox
           row={4}
           columnStart={6}
           columnEnd={11}
+          opacity={.2}
           placeholder="enter email here"
-          value={password}
-          onChange={setPassword}
+          value={email}
+          onChange={setEmail}
           onEnter={handleLogin}
         />
 
         <Pixel opacity={.65} row={5} column={1}/>
         <Pixel opacity={.47} row={5} column={2}/>
 
-        <Pixel opacity={1} row={6} column={3}/>
-        <Pixel opacity={1} row={6} column={4}/>
-        <Pixel opacity={1} row={6} column={5}/>
-        <Pixel opacity={.2} row={6} column={6}/>
-        <Pixel opacity={.2} row={6} column={7}/>
-        <Pixel opacity={.2} row={6} column={8}/>
-        <Pixel opacity={.2} row={6} column={9}/>
-        <Pixel opacity={.2} row={6} column={10}/>
-        <Pixel opacity={.2} row={6} column={11}/>
-        <Text row={6} columnStart={3} columnEnd={5}>PASSWORD</Text>
-        <TextInput
+        <TextBox opacity={1} row={6} columnStart={3} columnEnd={5} text="PASSWORD"/>
+        <InputBox
           row={6}
           columnStart={6}
           columnEnd={11}
+          opacity={.2}
           placeholder="enter password here"
-          value={email}
-          onChange={setEmail}
+          value={password}
+          onChange={setPassword}
           onEnter={handleLogin}
         />
 
       </div>
-      <Link to='/account/new' className="minor-link">new user</Link>
+      <Link to={`/account/new${next ? `?next=${next}` : ''}`} className="minor-link">new user</Link>
       <br/><br/><br/><br/>
       <StylishButton className="acct-login-button" onClick={handleLogin} text="Login"/>
     </section>

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
 import auth from './auth';
+import backpack from './backpack';
 import currentBadge from './currentBadge';
 import currentIssuer from './currentIssuer';
 import badges from './badges';
@@ -12,6 +13,7 @@ import user from './user';
 
 const createRootReducer = history => combineReducers({
     auth,
+    backpack,
     currentBadge,
     currentIssuer,
     badges,
