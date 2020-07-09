@@ -11,9 +11,14 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const rootDir = __dirname;
 
+console.log("process.env.GEOBADGES_API_ENDPOINT:", process.env.GEOBADGES_API_ENDPOINT);
+
 // https://webpack.js.org/guides/public-path/
-let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/'
+let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/';
+console.log("PUBLIC_PATH:", PUBLIC_PATH);
+
 const OUTPUT_PATH = resolve(__dirname, './dist');
+console.log("OUTPUT_PATH:", OUTPUT_PATH);
 
 // for (let key in process.env) console.log(key, ":", process.env[key]);
 
@@ -56,6 +61,7 @@ const plugins = [
   })
 ];
 
+console.log("process.env.CNAME:", process.env.CNAME);
 if (process.env.CNAME) {
   plugins.push(new CnameWebpackPlugin({
     domain: process.env.CNAME
