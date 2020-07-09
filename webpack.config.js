@@ -48,6 +48,11 @@ const plugins = [
   new DefinePlugin({
     PUBLIC_PATH: JSON.stringify(PUBLIC_PATH)
   }),
+  new EnvironmentPlugin([
+    'CNAME',
+    'GEOBADGES_API_ENDPOINT',
+    'GEOBADGES_FUNCTIONS_ENDPOINT'
+  ]),
   new CopyWebpackPlugin(patterns),
   new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
   new HtmlWebpackPlugin({
