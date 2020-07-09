@@ -12,6 +12,8 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const rootDir = __dirname;
 
 console.log("process.env.GEOBADGES_API_ENDPOINT:", process.env.GEOBADGES_API_ENDPOINT);
+console.log("process.env.GEOBADGES_FUNCTIONS_ENDPOINT:", process.env.GEOBADGES_FUNCTIONS_ENDPOINT);
+
 
 // https://webpack.js.org/guides/public-path/
 let PUBLIC_PATH = process.env.BASEURL || process.env.PUBLIC_PATH || '/';
