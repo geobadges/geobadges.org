@@ -20,8 +20,8 @@ const ProfilePage = ({ user, router }) => {
   }
 
   const subpages = [
-    { title: 'Badges', value: 0.5, color: 'green' },
-    { title: 'Settings', value: 0.5, color: 'purple'}
+    { title: 'Badges', value: 0.5, color: '#004F00' },
+    { title: 'Settings', value: 0.5, color: '#6EB612'}
   ];
   
   return (
