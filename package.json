@@ -7,6 +7,7 @@
     "api": "docker run --env GB_USER='user' --env GB_PASSWORD='password' --publish 8000:8000 geobadges/api",
     "analyze": "webpack --profile --json > stats.json && npx webpack-bundle-analyzer stats.json",
     "build": "webpack --mode=production",
+    "build:netlify": "CNAME='$CNAME' GEOBADGES_API_ENDPOINT='$GEOBADGES_API_ENDPOINT' GEOBADGES_FUNCTIONS_ENDPOIN='$GEOBADGES_FUNCTIONS_ENDPOINT' npm run build",
     "build:prod": "CNAME='beta.geobadges.io' npm run build",
     "lint": "eslint 'src/**/*' --ext .js,.jsx --fix  --ignore-pattern '*.html'",
     "prettier": "pretty-quick --staged",
