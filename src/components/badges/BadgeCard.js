@@ -40,7 +40,7 @@ const BadgeCard = ({ entityId }) => {
                     <div className="badge-card-img-wrapper">
                         <img src={image}/>
                     </div>
-                    <div className="badge-card-title">{name}</div>
+                    <div className="badge-card-title" title={name}>{name}</div>
                     <div className="badge-card-issuer">{issuer.name}</div>
                     <Stats
                         keys={['level','awarded','duration']}

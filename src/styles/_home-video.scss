@@ -30,8 +30,9 @@
         line-height: 120%;
         position: absolute;
         top: 50px;
-        margin-top: 120px;
+        margin-top: 80px;
         margin-left: 100px;
+        margin-right: 50px;
         color: $white-font;
     }
         
@@ -44,7 +45,7 @@
         display: inline-block;
         width: 100%;
         max-width: 50%;
-        padding-top: 330px;
+        padding-top: 300px;
         padding-left: 100px;
         padding-right: 500px;
         top: 50px;
@@ -52,6 +53,10 @@
         color: $white-font;
         * {
             font-weight: 400 !important;
+        }
+        
+        h3 {
+            font-size: 1em;
         }
     }
     #play-btn {

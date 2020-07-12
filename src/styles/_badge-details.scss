@@ -56,26 +56,33 @@ $badge-details-box-padding: 40px;
             top: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
-            width: 65%;
+            width: 90%;
         }
       }
       .badge-card-title {
+          font-family:$main-font;
           color: whitesmoke;
-          font-size: 24px;
+          font-size: 26px;
+          font-weight: 600;
       }
       .badge-card-issuer {
+          font-family:$main-font;
           color: whitesmoke;
-          font-size: 8px;
+          font-size: 16px;
       }
       table {
         margin: 10px auto;
+        font-family:$secondary-font;
+        color: whitesmoke;
+        position: absolute;
+        bottom: 30px;
+        
         .badge-stats-values {
-          color: whitesmoke;
           font-size: 20px;
         }
-        .badge-stats-keys {
-          color: whitesmoke;
-          font-size: 8px;
+        
+        .gb-stats-keys {
+          font-size: 10px;
           td {
             padding-left: 7.5px;
             padding-right: 7.5px;
@@ -87,6 +94,7 @@ $badge-details-box-padding: 40px;
       background: $light-gray;
       background-image: linear-gradient(#F6F6F6, #D7CDCC);
       #badge-details-card-tabs {
+        font-family: $main-font;
         height: 50px;
         left: $badge-details-box-padding;
         position: absolute;
@@ -95,7 +103,7 @@ $badge-details-box-padding: 40px;
         .badge-details-card-tab {
           color: #7E787C;
           cursor: pointer;
-          font-size: 24px;
+          font-size: 20px;
           font-weight: bold;
           position: absolute;
           text-decoration: none;
@@ -114,7 +122,7 @@ $badge-details-box-padding: 40px;
         }
       }
       .badge-details-card-details-box {
-        background-image: linear-gradient(#F64E21, #AE341C);
+        background-image: linear-gradient(rgba(247, 98, 58, 0.7), #AE341C);
         bottom: 50px;
         border-radius: 10px;
         left: $badge-details-box-padding;
@@ -122,6 +130,7 @@ $badge-details-box-padding: 40px;
         position: absolute;
         right: $badge-details-box-padding;
         top: 100px;
+        font-family: $secondary-font;
 
         .badge-expiration {
           color: $light-gray;
