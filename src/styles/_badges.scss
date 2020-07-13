@@ -25,6 +25,7 @@
                     width: 180px;
                     &:hover {
                         transform: scale(1.1);
+                        transition: 1.5s;
                         z-index: $badge-hover-z-index;
                     }
                     .badge-card-img-wrapper {
@@ -42,7 +43,7 @@
                         }
                     }
                     .badge-card-title {
-                        color: $white-font;
+                        color: whitesmoke;
                         font-family: $main-font;
                         font-size: 18px;
                         overflow: hidden;
@@ -53,7 +54,7 @@
                     .badge-card-issuer {
                         color: whitesmoke;
                         font-family: $main-font;
-                        font-size: 8px;
+                        font-size: 10px;
                     }
                     table {
                         font-family: $secondary-font;
@@ -74,6 +75,10 @@
                         }
                     }
                 }
+            }
+            
+            .BrainHubCarousel__dot {
+                color: green !important;
             }
         }
     }
