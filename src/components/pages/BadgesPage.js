@@ -28,6 +28,10 @@ const Badges = (props) => {
       title: 'Beginner',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('beginner')))
     },
+        {
+      title: 'Intermediate',
+      badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('intermediate')))
+    },
     {
       title: 'Advanced',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('advanced')))
