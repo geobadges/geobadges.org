@@ -40,6 +40,10 @@ const Badges = (props) => {
       title: 'OpenStreetMap',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('osm') || t.toLowerCase().includes('openstreetmap')))
     },
+        {
+      title: 'Developer',
+      badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('developer') || t.toLowerCase().includes('code')))
+    },
     {
       title: 'Makers',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('diy') || t.toLowerCase().includes('maker')))

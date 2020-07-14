@@ -7,7 +7,7 @@ $error-bar-padding: 15px;
     font-size: 14px;
     left: 0;
     padding: $error-bar-padding;
-    position: absolute;
+    position: fixed;
     right: $menu-width;
     top: $login-bar-height;
     z-index: $error-bar-z-index;

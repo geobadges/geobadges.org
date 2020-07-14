@@ -243,10 +243,13 @@ $expanded-issuer-connect-card-about-height: 75px;
                         .issuer-description-wrapper {
                             height: calc(#{$expanded-issuer-height} - #{$expanded-issuer-connect-card-about-height} - 50px);
                             padding-top: 10px;
+                            padding-left: 10%;
+                            padding-right: 10%;
                             overflow-y: auto;
                             .issuer-description {
                                 color: #D7CDCC;
                                 font-family: 'Kanit';
+                                font-weight: 300;
                                 font-size: 14px;
                             }
                         }
