@@ -47,6 +47,10 @@ const Badges = (props) => {
     {
       title: 'Makers',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('diy') || t.toLowerCase().includes('maker')))
+    },
+    {
+      title: 'Everything',
+      badges: badges.filter(badge => badge.image)
     }
   ].filter(row => row.badges.length > 0);
   // rows = rows.concat(rows).concat(rows).concat(rows);
