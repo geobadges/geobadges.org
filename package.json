@@ -4,7 +4,7 @@
   "description": "GeoBadges Front-End Website built in React",
   "main": "index.js",
   "scripts": {
-    "api": "docker run --env GB_USER='user' --env GB_PASSWORD='password' --publish 8000:8000 geobadges/api",
+    "api": "docker pull geobadges/api && docker rm --force gbapi || true && docker run --env-file .env --name gbapi --publish 8000:8000 geobadges/api:latest",
     "analyze": "webpack --profile --json > stats.json && npx webpack-bundle-analyzer stats.json",
     "build": "webpack --mode=production",
     "build:netlify": "CNAME=$CNAME GEOBADGES_API_ENDPOINT=$GEOBADGES_API_ENDPOINT GEOBADGES_FUNCTIONS_ENDPOINT=$GEOBADGES_FUNCTIONS_ENDPOINT npm run build",
