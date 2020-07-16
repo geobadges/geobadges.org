@@ -111,6 +111,10 @@ $expanded-issuer-connect-card-about-height: 75px;
                     z-index: $issuer-minimized-stats-card;
                     width: 83%;
 
+                    .badge-list {
+                        display: none;
+                    }
+
                     table {
                         display: none;
                     }
@@ -167,6 +171,9 @@ $expanded-issuer-connect-card-about-height: 75px;
                     box-sizing: border-box;
                     margin: 0 auto;
                     padding: 15px 15px;
+                    .badge-list {
+                        display: none;
+                    }                    
                     table {
                         bottom: 0;
                         left: 50%;
@@ -259,6 +266,11 @@ $expanded-issuer-connect-card-about-height: 75px;
                         .issuer-connect-card-title {
                             display: none;
                         }
+                    }
+                }
+                &[data-issuer-card-selected=stats] {
+                    .badge-list {
+                        display: block;
                     }
                 }
             }

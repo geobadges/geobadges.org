@@ -9,7 +9,7 @@ import useIssuer from '../../hooks/useIssuer';
 import useRouteMatchParams from '../../hooks/useRouteMatchParams';
 
 const IssuerTitleCard = ({ entityId, router }) => {
-    console.log("starting IssuerTitleCard with router:", router);
+    // console.log("starting IssuerTitleCard with router:", router);
     const dispatch = useDispatch();
     const { name, image } = useIssuer(entityId);
     const handleClick = () => {

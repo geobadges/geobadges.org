@@ -5,7 +5,7 @@ import { push } from 'connected-react-router';
 import { useRouteMatch } from 'react-router-dom';
 import classnames from 'classnames';
 
-
+import BadgeList from '../badges/BadgeList';
 import Stats from '../Stats';
 import useIssuer from '../../hooks/useIssuer';
 
@@ -17,8 +17,8 @@ const StatsCard = ({ entityId }) => {
     const isIssuerSelected = issuerId === entityId;
     const isCardSelected = isIssuerSelected && issuerCard === 'stats';
 
-    const { stats } = useIssuer(entityId);
-    const { badges, learners, technologies } = stats;
+    const { badges, stats } = useIssuer(entityId);
+    const { badges: numBadges, learners, technologies } = stats;
 
     const className = classnames(
         'issuer-stats-card',
@@ -34,12 +34,10 @@ const StatsCard = ({ entityId }) => {
     };
     return (
         <li className={className} onClick={handleClick}>
-            <div className="badge-list-wrapper">
-                Badge List
-            </div>
+            <BadgeList badges={badges}/>
             <Stats
                 keys={['badges','learners','technologies']}
-                values={[badges, learners, technologies]}
+                values={[numBadges, learners, technologies]}
             />
         </li>
     );
