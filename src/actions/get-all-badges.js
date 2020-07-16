@@ -15,9 +15,14 @@ export default function getAllBadges() {
     const response = await axios.get(url);
     console.log("response:", response);
 
+    const badges = response.data.map(badge => {
+      if (!badge.image) badge.image = 'static/images/placeholder-badge.png';
+      return badge;
+    });
+
     dispatch({
       type: "SET_BADGES",
-      data: response.data,
+      data: badges,
     });
   };
 }
