@@ -9,6 +9,9 @@ $expanded-issuer-connect-card-about-height: 75px;
 
 #issuers {
     text-align: center;
+    .details-page-close-icon {
+        margin-top: $login-bar-height; 
+    }
     .issuer {
         .issuer-title-card {
             background: white;

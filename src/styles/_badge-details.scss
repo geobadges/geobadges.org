@@ -13,20 +13,7 @@ $badge-details-box-padding: 40px;
   &.badge-details-active {
     transform: none;
   }
-  #badge-details-close-icon {
-    cursor: pointer;
-    height: 30px;
-    left: 10px;
-    position: absolute;
-    top: 10px;
-    width: 30px;
-    z-index: $badge-details-close-icon-z-index;
 
-    svg {
-      color: $close-sign-color;
-      font-size: 30px;
-    }
-  }
   #badge-details-card-wrapper {
     padding: 50px;
     position: relative;
