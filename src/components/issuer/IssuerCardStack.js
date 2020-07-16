@@ -33,7 +33,7 @@ const Issuer = ({ entityId }) => {
     const issuerCardSelected = !issuerSelected ? undefined : ISSUER_CARDS.includes(issuerCard) ? issuerCard : 'title';
 
     useClickAway(ref, () => {
-        // dispatch(push('/issuers'));
+        if (issuerSelected) dispatch(push(`/issuers`));
     });
 
     // set transform, translate and scale command depending on offset from the left and top
