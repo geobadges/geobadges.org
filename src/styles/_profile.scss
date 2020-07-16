@@ -1,20 +1,25 @@
 $pie-chart-size: 300px;
 #profile {
-    font-size: 18px;
+    font-size: 12px;
     #pie-chart-wrapper {
         margin: 0 auto;
         max-width: $pie-chart-size;
-
+        labelPosition: 25%;
+        segmentsShift: 5;
+        
         svg {
             cursor: pointer;
             text {
                 pointer-events: none;
+                font-family: kanit, sans-serif;
+                font-size: 6px;
+                
             }
         }
     }
 
     .profile-subpage {
-        border: 2px solid $dark-gray;
+        border: 4px solid $dark-gray;
         border-radius: 20px;
         margin-top: -1 * $pie-chart-size / 2;
         padding: 30px;
@@ -26,7 +31,7 @@ $pie-chart-size: 300px;
         border: 2px solid darkslategray;
         color: whitesmoke;
         display: inline-block;
-        font-size: 12px;
+        font-size: 14px;
         margin-right: 10px;
         margin-top: 10px;
         padding: 5px;        
