@@ -15,9 +15,17 @@ export default function getIssuers() {
         const response = await axios.get(url);
         console.log("response:", response);
 
+        const { data: issuers } = response;
+
+        issuers.forEach(issuer => {
+            issuer.badges.forEach(badge => {
+                if (!badge.image) badge.image = '/static/images/placeholder-badge.png';
+            });
+        });
+
         dispatch({
             type: 'SET_ISSUERS',
-            data: response.data
+            data: issuers
         });
     };
 };

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
 import pick from 'lodash.pick';
+import { FaTimes } from 'react-icons/fa';
 
 import IssuerCardStack from '../issuer/IssuerCardStack';
 import useIssuers from '../../hooks/useIssuers';
@@ -15,6 +16,7 @@ const IssuersPage = ({ currentIssuer, router }) => {
   const displayOverlay = issuerId || currentIssuer;
   return (
     <section id="issuers" className="page">
+      {displayOverlay && <div className="details-page-close-icon"><FaTimes/></div>}
       {issuers.map(({ entityId }) => {
         return <IssuerCardStack entityId={entityId} key={entityId}/>;
       })}

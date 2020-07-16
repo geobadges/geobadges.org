@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect, useDispatch } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
@@ -6,6 +6,7 @@ import { useHistory, useRouteMatch, NavLink } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import classnames from 'classnames';
 import pick from 'lodash.pick';
+import { useClickAway } from 'react-use';
 
 import clearCurrentBadge from '../../actions/clear-current-badge';
 import setCurrentBadge from '../../actions/set-current-badge';
@@ -19,10 +20,14 @@ const BadgeDetails = (props) => {
   const badge = useCurrentBadge();
   const dispatch = useDispatch();
   const history = useHistory();
+  const ref = useRef();
+
   const close = () => {
     dispatch(clearCurrentBadge());
     history.push('/badges');
   };
+  useClickAway(ref, close);
+
   const active = badge !== null;
 
   const match = useRouteMatch();
@@ -51,9 +56,9 @@ const BadgeDetails = (props) => {
 
   return (
     <section id="badge" className={classnames({ "badge-details-active": active })}>
-      <div id="badge-details-close-icon" onClick={close}><FaTimes/></div>
+      <div className="details-page-close-icon" close={close}><FaTimes/></div>
 
-      <div id="badge-details-card-wrapper">
+      <div id="badge-details-card-wrapper" ref={ref}>
         <div id="badge-details-card-front" className="badge-details-card">
           <div className="badge-details-card-img-wrapper">
               <img src={image}/>

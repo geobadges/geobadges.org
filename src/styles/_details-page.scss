@@ -1,0 +1,14 @@
+.details-page-close-icon {
+    cursor: pointer;
+    height: 30px;
+    left: 10px;
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    z-index: $details-page-close-icon-z-index;
+
+    svg {
+      color: $close-sign-color;
+      font-size: 30px;
+    }
+  }
