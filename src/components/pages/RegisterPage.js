@@ -14,7 +14,10 @@ import StylishButton from '../StylishButton';
 import InputBox from '../InputBox';
 import Rect from '../Rect';
 
+import { isEmpty, naturalJoin } from '../../utils/forms';
+
 import register from '../../actions/register';
+import setError from '../../actions/set-error';
 
 const RegisterPage = ({ user, router }) => {
   const dispatch = useDispatch();
@@ -33,7 +36,17 @@ const RegisterPage = ({ user, router }) => {
 
   const handleRegister = () => {
     console.log("starting handleRegister");
-    if (email !== "" && password !== "" && confirmPassword !== "" && firstName !== "" && lastName !== "") {
+
+    const empties = [];
+    if (isEmpty(email)) empties.push('email');
+    if (isEmpty(password)) empties.push('password');
+    if (isEmpty(confirmPassword)) empties.push('password confirmation');
+    if (isEmpty(firstName)) empties.push('first name');    
+    if (isEmpty(lastName)) empties.push('last name');
+
+    if (empties.length > 0) {
+      dispatch(setError(`You forgot to provide the following information: ${naturalJoin(empties)}`));
+    } else {
       console.log("registering:", email);
       dispatch(register({ email, password, confirmPassword, firstName, lastName, next }));
     }
@@ -74,6 +87,7 @@ const RegisterPage = ({ user, router }) => {
           columnEnd={11}
           opacity={.2}
           placeholder="enter password here"
+          type="password"
           value={password}
           onChange={setPassword}
           onEnter={handleRegister}
@@ -86,6 +100,7 @@ const RegisterPage = ({ user, router }) => {
           columnEnd={11}
           opacity={.2}
           placeholder="confirm password here"
+          type="password"
           value={confirmPassword}
           onChange={setConfirmPassword}
           onEnter={handleRegister}
@@ -117,6 +132,8 @@ const RegisterPage = ({ user, router }) => {
 
       </div>
       <Link to={`/account/login${next ? `?next=${next}` : ''}`} className="minor-link">Already a User?</Link>
+      <br/><br/><br/><br/>
+      <span>By Registering you Agree to <Link to={`/account/tos`} className="minor-link" target="_blank">these Terms of Service</Link></span>
       <br/><br/><br/><br/>
       <StylishButton className="acct-login-button" onClick={handleRegister} text="Register"/>
     </section>

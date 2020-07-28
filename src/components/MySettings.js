@@ -8,15 +8,22 @@ import { PieChart } from 'react-minimal-pie-chart';
 import { FaCog } from 'react-icons/fa';
 import { BsTriangleFill } from 'react-icons/bs';
 
+import StylishButton from './StylishButton';
+import logout from '../actions/logout';
 import useLoggedIn from '../hooks/useLoggedIn';
 
 const MySettings = ({ user }) => {
 
+    const dispatch = useDispatch();
     const loggedIn = useLoggedIn();
 
     if (!loggedIn) {
         return <Redirect to="/account/login?next=/account/profile/settings"/>;
     }
+
+    const handleLogOut = () => {
+        dispatch(logout());
+    };
 
     return (
         <div className="my-settings">
@@ -32,6 +39,7 @@ const MySettings = ({ user }) => {
                 </div>
                 );
             })}
+            <StylishButton className="acct-login-button" onClick={handleLogOut} text="Log Out"/>
         </div>
     );
 };

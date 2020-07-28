@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaUserCircle } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import LoginBarInput from './LoginBarInput';
 import login from '../actions/login';
@@ -33,7 +34,7 @@ const LoginBar = ({ }) => {
         return (
             <div className="login-bar-background">
                 <div className="gb-login-bar">
-                    <FaUserCircle />
+                    <Link to="/account/profile"><FaUserCircle/></Link>
                     <div className="gb-login-bar-welcome-text-wrapper">
                         <div className="gb-login-bar-welcome-text">{text}</div>
                     </div>

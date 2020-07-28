@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Rect from './Rect';
 import TextInput from './TextInput';
 
-const InputBox = ({ columnEnd, columnStart, onChange, onEnter, opacity, placeholder, row, value, }) => {
+const InputBox = ({ columnEnd, columnStart, onChange, onEnter, opacity, placeholder, row, type, value, }) => {
     return (
         <>
             <Rect opacity={opacity} row={row} columnStart={columnStart} columnEnd={columnEnd}/>
@@ -13,6 +13,7 @@ const InputBox = ({ columnEnd, columnStart, onChange, onEnter, opacity, placehol
                 columnStart={columnStart}
                 columnEnd={columnEnd}
                 placeholder={placeholder}
+                type={type}
                 value={value}
                 onChange={onChange}
                 onEnter={onEnter}
@@ -28,6 +29,7 @@ InputBox.propTypes = {
     onEnter: PropTypes.func.isRequired,
     opacity: PropTypes.number.isRequired,
     placeholder: PropTypes.string.isRequired,
+    type: PropTypes.string,
     row: PropTypes.number.isRequired,
     value: PropTypes.string.isRequired
 };
