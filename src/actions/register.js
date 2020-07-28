@@ -28,14 +28,16 @@ export default function register({
         firstName,
         lastName,
         optedInToMarketing: false,
-        password,        
+        password
       }
       const successful = await client.register(data);
 
-      dispatch(login({ username: email, password, next }));
+      if (successful) {
+        dispatch(login({ username: email, password, next }));
 
-      // makes sure any left-over messages are cleared
-      dispatch(clearMessage());
+        // makes sure any left-over messages are cleared
+        dispatch(clearMessage());  
+      }
 
     } catch (error) {
       let message = "Failed to Register. ";
