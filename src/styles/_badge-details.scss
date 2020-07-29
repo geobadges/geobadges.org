@@ -66,6 +66,9 @@ $badge-details-box-padding: 40px;
         
         .badge-stats-values {
           font-size: 20px;
+          td {
+            width: 33%;
+          }
         }
         
         .gb-stats-keys {
@@ -73,6 +76,7 @@ $badge-details-box-padding: 40px;
           td {
             padding-left: 7.5px;
             padding-right: 7.5px;
+            width: 33%;
           }
         }
       }
