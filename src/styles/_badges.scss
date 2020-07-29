@@ -1,5 +1,9 @@
 #badges {
     padding-right: 50px;
+
+    @media (max-width: 1000px) {
+        padding-left: 50px;
+    }
     
     .badge-row {
         margin-bottom: 40px;
@@ -9,6 +13,8 @@
         }
         .badge-row-carousel {
             position: relative;
+
+            
             .badge-card-wrapper {
                 display: inline-block;
                 .badge-card-front {
@@ -19,6 +25,7 @@
                     display: inline-block;
                     height: 240px;
                     margin-left: 10px;
+                    margin-bottom: 15px;
                     margin-top: 15px;
                     margin-right: 10px;
                     position: relative;
@@ -79,8 +86,20 @@
                 }
             }
             
-            .BrainHubCarousel__dot {
-                color: green !important;
+            .BrainhubCarousel__dots {
+                .BrainhubCarousel__dot {
+                    background: none;
+                    &:hover:before {
+                        background: $ags-green;
+                    }
+                    &:before {
+                        height: 10px;
+                        width: 10px;
+                    }                    
+                }
+            }
+            &.hide-dots .BrainhubCarousel__dots {
+                display: none;
             }
         }
     }

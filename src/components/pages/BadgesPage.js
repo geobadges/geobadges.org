@@ -60,7 +60,7 @@ const Badges = (props) => {
 
   return (
     <>
-      <section id="badges" className={classnames('page', { 'no-scroll': selected })}>
+      <section id="badges" className={classnames('page', { 'no-scroll': selected })} >
         {rows.map(({ title, badges}) => {
           return <BadgeRow badges={badges} title={title} key={title} />
         })}
