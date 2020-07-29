@@ -6,7 +6,7 @@ import pick from 'lodash.pick';
 import useLoggedIn from '../hooks/useLoggedIn';
 
 import AccountPage from './pages/AccountPage';
-import ErrorBar from './ErrorBar';
+import MessageBar from './MessageBar';
 import HomePage from './pages/HomePage';
 import BadgesPage from './pages/BadgesPage';
 import IssuersPage from './pages/IssuersPage';
@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <LoginBar />
-      <ErrorBar />
+      <MessageBar />
       <Switch>
         <Route path="/home" render={() => <HomePage/>} />
         <Route path="/badges" render={() => <BadgesPage/>} />

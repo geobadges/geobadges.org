@@ -11,6 +11,7 @@
   input[type=text] {
     &:hover, &:focus {
       border: 2px solid #F64E21;
+      outline: none;
     }
   }
 }

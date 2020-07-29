@@ -24,6 +24,7 @@ export default function login({ username, password, next }) {
         dispatch(push(next));
       }
     } catch (error) {
+      console.error(error);
       dispatch(
         setError("Failed to Log In. Please check your username and password.")
       );

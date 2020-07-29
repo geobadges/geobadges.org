@@ -1,6 +1,10 @@
-export default function (error) {
+export default function setError (error) {
+    console.log("starting setError wtih", error);
     return {
-        type: 'SET_ERROR',
-        data: error
+        type: 'SET_MESSAGE',
+        data: {
+            text: error,
+            type: 'error'
+        }
     };
 }

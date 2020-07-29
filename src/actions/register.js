@@ -2,7 +2,9 @@ import axios from "axios";
 import { push } from "connected-react-router";
 
 import setError from "./set-error";
+import clearMessage from './clear-message';
 import login from "./login";
+import client from "../api-client";
 
 export default function register({
   email,
@@ -20,39 +22,23 @@ export default function register({
   });
   return async function (dispatch, getState) {
     try {
-      const url = `${process.env.GEOBADGES_API_ENDPOINT}/v1/user/profile`;
-      console.log("url:", url);
+      const data = {
+        agreedToTermsOfService: true,
+        email,
+        firstName,
+        lastName,
+        optedInToMarketing: false,
+        password
+      }
+      const successful = await client.register(data);
 
-      const response = await axios({
-        url,
-        method: "POST",
-        data: {
-          agreed_terms_service: true,
-          email,
-          first_name: firstName,
-          last_name: lastName,
-          marketing_opt_in: false,
-          password,
-        },
-      });
-      console.log("response:", response);
+      if (successful) {
+        dispatch(login({ username: email, password, next }));
 
-      const { data } = response;
+        // makes sure any left-over messages are cleared
+        dispatch(clearMessage());  
+      }
 
-      dispatch(login({ username: email, password, next }));
-
-      // console.log("data:", data);
-
-      // dispatch({
-      //     type: 'LOGIN',
-      //     data: { accessToken, refreshToken, expirationDate }
-      // });
-
-      // dispatch(getProfile());
-
-      // if (next) {
-      //     dispatch(push(next));
-      // }
     } catch (error) {
       let message = "Failed to Register. ";
       try {

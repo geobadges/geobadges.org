@@ -1,23 +1,28 @@
-$error-bar-padding: 15px;
+$message-bar-padding: 15px;
 
-.gb-error-bar {
-    background: $rusty-background;
+.gb-message-bar {
     color: white;
     font-family: 'Poppins';
     font-size: 14px;
     left: 0;
-    padding: $error-bar-padding;
+    padding: $message-bar-padding;
     position: fixed;
     right: $menu-width;
     top: $login-bar-height;
-    z-index: $error-bar-z-index;
+    z-index: $message-bar-z-index;
 
     svg {
         cursor: pointer;
         font-size: 20px;
         position: absolute;
-        right: $error-bar-padding;
+        right: $message-bar-padding;
         top: 50%;
         transform: translateY(-50%);
+    }
+    &.error {
+        background: $rusty-background;
+    }
+    &.success {
+        background: $ags-green;
     }
 }
