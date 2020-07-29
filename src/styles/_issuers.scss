@@ -6,283 +6,330 @@ $expanded-issuer-height: 550px;
 $expanded-issuer-width: 550px;
 $expanded-issuer-name-bar-height: 75px;
 $expanded-issuer-connect-card-about-height: 75px;
+$expanded-issuer-connect-card-footer-height: 100px;
 
 #issuers {
-    text-align: center;
-    .details-page-close-icon {
-        margin-top: $login-bar-height; 
+  text-align: center;
+  .details-page-close-icon {
+    margin-top: $login-bar-height;
+  }
+  .issuer {
+    .issuer-title-card {
+      background: white;
+      .img-wrapper {
+        overflow: hidden;
+        position: relative;
+        img {
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .issuer-name-bar {
+        background: $dark-gray;
+        bottom: 0;
+        font-family: "Poppins";
+        color: $light-gray;
+        position: absolute;
+        width: 100%;
+        .issuer-name {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 75%;
+        }
+      }
     }
-    .issuer {
+    .issuer-stats-card {
+      background: $light-gray;
+    }
+    .issuer-connect-card {
+      background: #1d263b;
+      color: $light-gray;
+    }
+    &.issuer-minimized {
+      // cursor: pointer;
+      display: inline-block;
+      margin-bottom: 100px;
+      margin-left: 20px;
+      margin-right: 20px;
+      transition: transform 0.9s; /* Animation */
+      vertical-align: top;
+      width: $minimized-issuer-width;
+      &:hover {
+        transform: scale(1.1);
+        z-index: $issuer-hover-z-index;
+      }
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+      .issuer-card-stack {
+        height: 200px;
+        width: $minimized-issuer-width;
+        padding: 0;
+        position: relative;
+        .issuer-card {
+          height: $minimized-issuer-height;
+          position: absolute;
+        }
         .issuer-title-card {
-            background: white;
-            .img-wrapper {
-                overflow: hidden;
-                position: relative;
-                img {
-                    left: 50%;
-                    position: absolute;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                }
+          // height: 145px;
+          border-radius: 5px;
+          // position: absolute;
+          text-align: center;
+          top: 0;
+          vertical-align: top;
+          width: $minimized-issuer-width;
+          z-index: $issuer-minimized-title-card;
+          .img-wrapper {
+            height: calc(
+              #{$minimized-issuer-height} - #{$minimized-issuer-name-bar-height}
+            );
+            width: $minimized-issuer-width;
+            img {
+              // margin-bottom: 10px;
+              // margin-top: 10px;
+              width: 110px;
             }
-            .issuer-name-bar {
-                background: $dark-gray;
-                bottom: 0;
-                font-family: 'Poppins';
-                color: $light-gray;
-                position: absolute;
-                width: 100%;
-                .issuer-name {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 75%;
-                }
+          }
+          .issuer-name-bar {
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            height: 50px;
+            // padding: 5px 10px;
+            .issuer-name {
+              font-size: 12px;
             }
+          }
         }
         .issuer-stats-card {
-            background: #D7CDCC;
+          border-radius: 20px;
+          bottom: -50px;
+          left: 50%;
+          margin: 0 auto;
+          // position: absolute;
+          top: 15px;
+          transform: translateX(-50%);
+          z-index: $issuer-minimized-stats-card;
+          width: 83%;
+
+          .badge-list {
+            display: none;
+          }
+
+          table {
+            display: none;
+          }
         }
         .issuer-connect-card {
-            background: #1D263B;
+          border-radius: 20px;
+          left: 50%;
+          top: 25px;
+          transform: translateX(-50%);
+          width: 69%;
         }
-        &.issuer-minimized {
-            // cursor: pointer;
-            display: inline-block;
-            margin-bottom: 100px;
-            margin-left: 20px;
-            margin-right: 20px;
-            transition: transform .9s; /* Animation */
-            vertical-align: top;
-            width: $minimized-issuer-width;
-            &:hover {
-                transform: scale(1.1);
-                z-index: $issuer-hover-z-index;
-            }
-            @media (max-width: 600px) {
-                width: 100%;
-            }
-            .issuer-card-stack {
-                height: 200px;
-                width: $minimized-issuer-width;
-                padding: 0;
-                position: relative;
-                .issuer-card {
-                    height: $minimized-issuer-height;
-                    position: absolute;
-                }
-                .issuer-title-card {
-                    // height: 145px;
-                    border-radius: 5px;
-                    // position: absolute;
-                    text-align: center;
-                    top: 0;
-                    vertical-align: top;
-                    width: $minimized-issuer-width;
-                    z-index: $issuer-minimized-title-card;
-                    .img-wrapper {
-                        height: calc(#{$minimized-issuer-height} - #{$minimized-issuer-name-bar-height});
-                        width: $minimized-issuer-width;
-                        img {
-                            // margin-bottom: 10px;
-                            // margin-top: 10px;
-                            width: 110px;
-                        }
-                    }
-                    .issuer-name-bar {
-                        border-bottom-left-radius: 5px;
-                        border-bottom-right-radius: 5px;
-                        height: 50px;
-                        // padding: 5px 10px;
-                        .issuer-name {
-                            font-size: 12px;
-                        }
-                    }
-                }
-                .issuer-stats-card {
-                    border-radius: 20px;
-                    bottom: -50px;
-                    left: 50%;
-                    margin: 0 auto;
-                    // position: absolute;
-                    top: 15px;
-                    transform: translateX(-50%);
-                    z-index: $issuer-minimized-stats-card;
-                    width: 83%;
-
-                    .badge-list {
-                        display: none;
-                    }
-
-                    table {
-                        display: none;
-                    }
-                }
-                .issuer-connect-card {
-                    border-radius: 20px;
-                    left: 50%;
-                    top: 25px;
-                    transform: translateX(-50%);
-                    width: 69%;
-                }
-            }
+      }
+    }
+    &.issuer-expanded {
+      height: $expanded-issuer-height;
+      left: 50%;
+      margin: 0;
+      position: absolute;
+      top: calc(#{$login-bar-height} + 50px);
+      transform: translateX(-50%);
+      // transform: scale(3) translateY(50%);
+      width: $expanded-issuer-width;
+      z-index: $selected-issuer-card-stack-z-index;
+      .issuer-card-stack {
+        height: $expanded-issuer-height;
+        width: $expanded-issuer-width;
+        padding: 0;
+        .issuer-card {
+          border-radius: 20px;
+          height: $expanded-issuer-height;
+          left: 50%;
+          position: absolute;
+          transform: translateX(-50%);
+          width: $expanded-issuer-width;
         }
-        &.issuer-expanded {
-            height: $expanded-issuer-height;
+        .issuer-card-selected {
+          z-index: $selected-issuer-card-z-index;
+        }
+        .issuer-title-card {
+          .img-wrapper {
+            height: calc(
+              #{$expanded-issuer-height} - #{$expanded-issuer-name-bar-height}
+            );
+            img {
+              width: 75%;
+            }
+          }
+          .issuer-name-bar {
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            font-size: 24px;
+            height: $expanded-issuer-name-bar-height;
+          }
+        }
+        .issuer-stats-card {
+          box-sizing: border-box;
+          margin: 0 auto;
+          padding: 15px 15px;
+          .badge-list {
+            display: none;
+          }
+          table {
+            bottom: 0;
             left: 50%;
-            margin: 0;
             position: absolute;
-            top: calc(#{$login-bar-height} + 50px);
             transform: translateX(-50%);
-            // transform: scale(3) translateY(50%);
-            width: $expanded-issuer-width;
-            z-index: $selected-issuer-card-stack-z-index;
-            .issuer-card-stack {
-                height: $expanded-issuer-height;
-                width: $expanded-issuer-width;
-                padding: 0;
-                .issuer-card {
-                    border-radius: 20px;
-                    height: $expanded-issuer-height;
-                    left: 50%;
-                    position: absolute;
-                    transform: translateX(-50%);
-                    width: $expanded-issuer-width;
-                }
-                .issuer-card-selected {
-                    z-index: $selected-issuer-card-z-index;
-                }
-                .issuer-title-card {
-                    .img-wrapper {
-                        height: calc(#{$expanded-issuer-height} - #{$expanded-issuer-name-bar-height});
-                        img {
-                            width: 75%;
-                        }
-                    }
-                    .issuer-name-bar {
-                        border-bottom-left-radius: 20px;
-                        border-bottom-right-radius: 20px;
-                        font-size: 24px;
-                        height: $expanded-issuer-name-bar-height;
-                    }
-                }
-                .issuer-stats-card {
-                    box-sizing: border-box;
-                    margin: 0 auto;
-                    padding: 15px 15px;
-                    .badge-list {
-                        display: none;
-                    }                    
-                    table {
-                        bottom: 0;
-                        left: 50%;
-                        margin-bottom: 1.5px;
-                        position: absolute;
-                        transform: translateX(-50%);
-                        td {
-                            width: 33%;
-                        }
-                        .gb-stats-values {
-                            font-weight: bold;
-                        }
-                    }
-                }
-                .issuer-connect-card {
-                    .issuer-connect-card-title {
-                        bottom: 0;
-                        color: #D7CDCC;
-                        font-family: 'Poppins';
-                        font-size: 30px;
-                        font-weight: bold;
-                        left: 50%;
-                        position: absolute;
-                        transform: translateX(-50%);
-                    }
-                }
-                &[data-issuer-card-selected=title] {
-                    .issuer-title-card {
-                        top: 0;
-                        width: 100%;
-                        z-index: $issuer-expanded-top-card;
-                    }
-                    .issuer-stats-card {
-                        top: 50px;
-                        width: 85%;
-                        z-index: $issuer-expanded-middle-card;
-                    }
-                    .issuer-connect-card {
-                        top: 100px;
-                        width: 72.5%;
-                        z-index: $issuer-expanded-bottom-card;
-                    }
-                }
-                &[data-issuer-card-selected=connect] {
-                    .issuer-title-card {
-                        top: 100px;
-                        width: 72.5%;
-                        z-index: $issuer-expanded-bottom-card;
-                        .issuer-name-bar {
-                            height: 50px;
-                            .issuer-name {
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                            }
-                        }
-                    }
-                    .issuer-stats-card {
-                        top: 50px;
-                        width: 85%;
-                        z-index: $issuer-expanded-middle-card;
-                    }
-                    .issuer-connect-card {
-                        top: 0;
-                        width: 100%;
-                        z-index: $issuer-expanded-top-card;
-                        .issuer-connect-card-about {
-                            color: #EEE;
-                            font-family: 'Kanit';
-                            font-size: 26px;
-                            font-weight: 600;
-                            height: $expanded-issuer-connect-card-about-height;
-                            padding-top: 5px;
-                            text-align: center;
-                            width: 100%;
-                        }
-                        .issuer-description-wrapper {
-                            height: calc(#{$expanded-issuer-height} - #{$expanded-issuer-connect-card-about-height} - 50px);
-                            padding-top: 10px;
-                            padding-left: 10%;
-                            padding-right: 10%;
-                            overflow-y: auto;
-                            .issuer-description {
-                                color: #D7CDCC;
-                                font-family: 'Kanit';
-                                font-weight: 300;
-                                font-size: 14px;
-                            }
-                        }
-                        .issuer-connect-card-title {
-                            display: none;
-                        }
-                    }
-                }
-                &[data-issuer-card-selected=stats] {
-                    .badge-list {
-                        display: block;
-                    }
-                }
+            td {
+              width: 33%;
             }
+            .gb-stats-values {
+              font-weight: bold;
+            }
+          }
         }
+        .issuer-connect-card {
+          .issuer-connect-card-title {
+            bottom: 0;
+            color: $white-font;
+            font-family: "Poppins";
+            font-size: 30px;
+            font-weight: bold;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+          }
+        }
+        &[data-issuer-card-selected="title"] {
+          .issuer-title-card {
+            top: 0;
+            width: 100%;
+            z-index: $issuer-expanded-top-card;
+          }
+          .issuer-stats-card {
+            top: 50px;
+            width: 85%;
+            z-index: $issuer-expanded-middle-card;
+            .gb-stats {
+              margin-bottom: 1.5px;
+            }
+          }
+          .issuer-connect-card {
+            top: 100px;
+            width: 72.5%;
+            z-index: $issuer-expanded-bottom-card;
+          }
+        }
+        &[data-issuer-card-selected="connect"] {
+          .issuer-title-card {
+            top: 100px;
+            width: 72.5%;
+            z-index: $issuer-expanded-bottom-card;
+            .issuer-name-bar {
+              height: 50px;
+              .issuer-name {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+          .issuer-stats-card {
+            top: 50px;
+            width: 85%;
+            z-index: $issuer-expanded-middle-card;
+            .gb-stats {
+              margin-bottom: 1.5px;
+            }
+          }
+          .issuer-connect-card {
+            top: 0;
+            width: 100%;
+            z-index: $issuer-expanded-top-card;
+            .issuer-connect-card-about {
+              color: $light-gray;
+              font-family: "Kanit";
+              font-size: 26px;
+              font-weight: 600;
+              height: $expanded-issuer-connect-card-about-height;
+              padding-top: 15px;
+              text-align: center;
+              width: 100%;
+            }
+            .issuer-description-wrapper {
+              height: calc(
+                #{$expanded-issuer-height} - #{$expanded-issuer-connect-card-about-height} -
+                  #{$expanded-issuer-connect-card-footer-height} - 50px
+              );
+              padding-top: 10px;
+              padding-left: 10%;
+              padding-right: 10%;
+              overflow-y: auto;
+              .issuer-description {
+                color: $light-gray;
+                font-family: "Kanit";
+                font-weight: 300;
+                font-size: 14px;
+              }
+            }
+            .issuer-connect-card-title {
+              display: none;
+            }
+            .issuer-connect-card-social {
+              bottom: 0;
+              color: $light-gray;
+              font-size: 50px;
+              height: $expanded-issuer-connect-card-footer-height;
+              left: 0;
+              position: absolute;
+              right: 0;
+              a {
+                display: inline-block;
+                height: $expanded-issuer-connect-card-footer-height;
+                margin: 0 15px;
+                position: relative;
+                svg {
+                  color: $light-gray;
+                  height: $expanded-issuer-connect-card-footer-height;
+                }
+                .glow {
+                  box-shadow: 0 0 30px 20px #0ff;
+                  display: none;
+                  height: 0;
+                  left: 50%;
+                  position: absolute;
+                  transform: translate(-50%, -50%);
+                  top: 50%;
+                  width: 0;
+                  z-index: -1;
+                }
+                &:hover .glow {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+        &[data-issuer-card-selected="stats"] {
+          .badge-list {
+            display: block;
+          }
+        }
+      }
     }
-    #issuers-overlay {
-        background: rgba(0, 0, 0, .85);
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: $issuer-overlay-z-index;
-    }
+  }
+  #issuers-overlay {
+    background: rgba(0, 0, 0, 0.85);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: $issuer-overlay-z-index;
+  }
 }
