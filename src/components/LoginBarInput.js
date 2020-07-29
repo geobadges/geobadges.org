@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LoginBarInput = ({ onChange, onEnter, placeholder, value }) => {
+const LoginBarInput = ({ onChange, onEnter, placeholder, type="text", value }) => {
     console.log("starting LoginBarInput with", value);
     const handleChange = event => onChange(event.target.value);
     const handleKeyPress = event => event.key === "Enter" && onEnter(value);
@@ -9,7 +9,7 @@ const LoginBarInput = ({ onChange, onEnter, placeholder, value }) => {
         <div className="gb-login-bar-input-wrapper">
             <input
                 className="gb-login-bar-input"
-                type="text"
+                type={type}
                 onChange={handleChange}
                 onKeyPress={handleKeyPress}
                 placeholder={placeholder}

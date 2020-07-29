@@ -10,7 +10,7 @@
   }
   input[type=text] {
     &:hover, &:focus {
-      border: 2px solid #F64E21;
+      border: 2px solid $orange;
       outline: none;
     }
   }

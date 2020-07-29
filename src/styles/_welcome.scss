@@ -1,11 +1,40 @@
 #home-welcome {
     background: $background-gray;
+    height: 100vh;
     position: relative;
     padding-left:150px;
     font-family: $main-font;
     
+    @media (max-width: 1100px) {
+        padding-left: 25px;
+        #text-content {
+            #geo {
+                font-size: 107.5px !important;
+                margin-bottom: 0 !important;
+                padding-top: 100px !important;
+                text-align: center !important;
+            }
+            #badges {
+                font-size: 50px !important;
+                margin-bottom: 0 !important;
+                margin-top: -50px !important; 
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                text-align: center !important;
+            }
+
+            #start-collecting {
+                margin-left: 0 !important;
+                text-align: center !important;
+                h4 {
+                    padding-left: 45px;
+                }
+            }
+        }
+    }
+
     #text-content {
-        
+        display: inline-block;
         max-width: 33%;
         
         #geo {
@@ -18,7 +47,6 @@
             -webkit-background-clip: text;
             -moz-background-clip: text;
             background-clip: text;
-    
         }
         
         #badges {
@@ -69,7 +97,7 @@
                 max-width: 50px;
                 display: inline-block;
                 position: relative;
-                color: #F64E21;
+                color: $orange;
                 vertical-align: super;
                 
                 &:hover {
@@ -78,6 +106,19 @@
                 }
             }
         
+    }
+    #welcome-image {
+        background: url("/static/images/topoclipped.svg");
+        background-size: cover;
+        bottom: 0;
+        display: inline-block;
+        height: 100vh;
+        left: auto;
+        right: $menu-width;
+        width: 33%;
+        max-width: 33%;
+        position: absolute;
+        top: 0;
     }
     
         

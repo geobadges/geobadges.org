@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FaUserCircle } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 
 import LoginBarInput from './LoginBarInput';
 import login from '../actions/login';
@@ -56,6 +57,7 @@ const LoginBar = ({ }) => {
                         placeholder="Password"
                         onChange={setPassword}
                         onEnter={handleLogin}
+                        type="password"
                         value={password}
                     />
                 </div>

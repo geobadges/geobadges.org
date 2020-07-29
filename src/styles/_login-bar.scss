@@ -24,6 +24,10 @@
             height: 100%;
             width: auto;
         }
+        a:hover svg {
+            fill: $orange;
+        }
+
         .gb-login-bar-welcome-text-wrapper {
             display: inline-block;
             height: 95%;
@@ -32,7 +36,7 @@
     
             .gb-login-bar-welcome-text {
                 font-family: $secondary-font;
-                color: whitesmoke;
+                color: $blue-font;
                 font-size: 18px;
                 position: absolute;
                 left: 10px;
@@ -62,7 +66,9 @@
                 transform: translateY(-50%);
                 width: 180px;
                 &:focus {
-                    // background: whitesmoke;
+                    background: lighten($orange, 37.5%);
+                    border-bottom-color: $orange;
+                    outline: none;
                 }
             }
             ::-webkit-input-placeholder {

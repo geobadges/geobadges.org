@@ -14,6 +14,7 @@ const Welcome = () => {
                     <h4>Start Collecting</h4><RiLoginCircleLine/>
                 </Link>
             </div>
+            <div id="welcome-image" />
         </section>
     );
 };

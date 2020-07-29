@@ -99,10 +99,10 @@ $badge-details-box-padding: 40px;
           position: absolute;
           text-decoration: none;
           &:hover {
-            border-bottom: 3px solid #F64E21;
+            border-bottom: 3px solid $orange;
           }
           &.badge-details-tab-selected {
-            color: #F64E21;
+            color: $orange;
           }
         }
         #badge-details-overview-tab {
