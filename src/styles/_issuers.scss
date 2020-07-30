@@ -316,8 +316,36 @@ $expanded-issuer-connect-card-footer-height: 100px;
           }
         }
         &[data-issuer-card-selected="stats"] {
-          .badge-list {
-            display: block;
+          .issuer-title-card {
+            top: 50px;
+            width: 85%;
+            z-index: $issuer-expanded-middle-card;
+            .issuer-name-bar {
+              height: 50px;
+            }
+          }
+          .issuer-connect-card {
+            top: 100px;
+            width: 72.5%;
+            z-index: $issuer-expanded-bottom-card;
+            .issuer-connect-card-title {
+              font-size: 20px;
+              font-weight: normal;
+              margin-bottom: 10px;
+            }
+          }
+          .issuer-stats-card {
+            z-index: $issuer-expanded-top-card;
+            .no-badges-notice {
+              font-size: 30px;
+              left: 50%;
+              position: absolute;
+              top: 25%;
+              transform: translate(-50%, -50%);
+            }
+            .badge-list {
+              display: block;
+            }
           }
         }
       }
