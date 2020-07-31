@@ -9,6 +9,7 @@ import { FaCog } from 'react-icons/fa';
 import { BsTriangleFill } from 'react-icons/bs';
 
 const MyBadges = ({ }) => {
+    // use backpack
     return (
         <div className="my-badges-wrapper">
             <div className="my-badges">
