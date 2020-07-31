@@ -27,10 +27,8 @@ const HomeVideo = () => {
             <img id='home-video-img' src='/static/images/home-video.png' />
             <div id='overlay'></div>
             <div id='video-title'>Leveraging the Experience of the Global Community</div>
-            <div id='span-content'>
-                <div id='video-content' dangerouslySetInnerHTML={{__html: videoContent}}></div>
-                <div id='play-btn' onClick={handlePlayVideo} dangerouslySetInnerHTML={{__html: FaPlayLight}}/>
-            </div>
+            <div id='video-content' dangerouslySetInnerHTML={{__html: videoContent}}></div>
+            <div id='play-btn' onClick={handlePlayVideo} dangerouslySetInnerHTML={{__html: FaPlayLight}}/>
             <video id='mp4' controls ref={vidRef}>
                 <source src='/static/images/geobadges.mp4' type="video/mp4" />
             </video> 
