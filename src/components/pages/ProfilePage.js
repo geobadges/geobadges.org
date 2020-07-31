@@ -10,10 +10,14 @@ import { BsTriangleFill } from 'react-icons/bs';
 
 import MyBadges from '../MyBadges';
 import MySettings from '../MySettings';
+import useBackpack from "../../hooks/useBackpack";
 
 const ProfilePage = ({ user, router }) => {
 
   const dispatch = useDispatch();
+  const backpack = useBackpack();
+
+  console.log("backpack.length;", backpack.length);
 
   if (!user) {
     return <Redirect to="/account/login?next=/account/profile/settings"/>;
