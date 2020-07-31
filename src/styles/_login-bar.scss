@@ -71,8 +71,8 @@
                     outline: none;
                 }
             }
-            ::-webkit-input-placeholder {
-                color: lightgray;
+            ::-webkit-input-placeholder, ::placeholder, :ms-input-placeholder, ::ms-input-placeholder {
+                color: $medium-gray;
                 font-weight: bold;
             }
         }
