@@ -10,14 +10,16 @@ import { BsTriangleFill } from 'react-icons/bs';
 
 import MyBadges from '../MyBadges';
 import MySettings from '../MySettings';
+import Pixel from '../Pixel';
 import useBackpack from "../../hooks/useBackpack";
 
 const ProfilePage = ({ user, router }) => {
 
   const dispatch = useDispatch();
   const backpack = useBackpack();
+  const count = backpack.length;
 
-  console.log("backpack.length;", backpack.length);
+  console.log("backpack.length;", count);
 
   if (!user) {
     return <Redirect to="/account/login?next=/account/profile/settings"/>;
@@ -28,8 +30,23 @@ const ProfilePage = ({ user, router }) => {
     { title: 'Settings', value: 0.5, color: '#D7CDCC'}
   ];
   
+  const color = "#D7CDCC";
+  const common = { paddingLeft: 0, paddingTop: 50, size: 25, width: 25, height: 25 };
   return (
     <section id="profile" className="page">
+      <div id="profile-name-bg">
+        <Pixel color={color} column={4} opacity={0.85} row={0} {...common}/>
+        <Pixel color={color} column={2} opacity={0.85} row={1} {...common}/>
+        <Pixel color={color} column={4} opacity={0.30} row={1} {...common}/>
+        <Pixel color={color} column={1} opacity={0.85} row={2} {...common}/>
+        <Pixel color={color} column={2} opacity={0.85} row={3} {...common}/>
+        <Pixel color={color} column={1} opacity={0.85} row={4} {...common}/>
+      </div>
+      <div id="profile-name">
+        <div id="profile-name-first">{user.firstName}</div>
+        <div id="profile-name-last">{user.lastName}</div>
+        <div id="profile-backpack-size">{(count === 1 ? '1 Badge' : `${count} Badges`) + ' Earned'}</div>
+      </div>
       <div id="pie-chart-wrapper">
         <PieChart
           data={subpages}
@@ -53,7 +70,7 @@ const ProfilePage = ({ user, router }) => {
           viewBoxSize={[100, 100]}
         />
       </div>
-      <div class="profile-subpage">
+      <div className="profile-subpage">
         <Switch>
           <Route path="/account/profile/settings" render={() => <MySettings/>} />
           <Route path="/account/profile/badges" render={() => <MyBadges/>} />

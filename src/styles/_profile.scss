@@ -1,11 +1,59 @@
 $pie-chart-size: 300px;
+$profile-break: 750px;
 #profile {
     font-size: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: $login-bar-height;
+
+    #profile-name-bg {
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        height: 200px;        
+    }
+
+    #profile-name {
+        color: #D73F3F;
+        font-weight: bold;
+        font-size: 48px;
+        left: 50px;
+        pointer-events: none;
+        position: absolute;
+        top: 100px;
+
+        #profile-name-first {
+            @media (max-width: $profile-break) {
+                display: inline-block;
+            }
+        }
+
+        #profile-name-last {
+            @media (max-width: $profile-break) {
+                display: inline-block;
+                margin-left: 15px;
+            }
+        }
+
+        #profile-backpack-size {
+            color: $dark-gray;
+            font-size: 14pt;
+            margin-top: 10px;
+        }
+    }
+
     #pie-chart-wrapper {
         margin: 0 auto;
+        margin-top: $page-padding-top;
         max-width: $pie-chart-size;
         labelPosition: 25%;
         segmentsShift: 5;
+
+        @media (max-width: $profile-break) {
+            margin-top: calc(#{$page-padding-top} + 75px);
+        }
         
         svg {
             cursor: pointer;
@@ -21,9 +69,41 @@ $pie-chart-size: 300px;
     .profile-subpage {
         border: 4px solid $dark-gray;
         border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: -1 * $pie-chart-size / 2;
+        max-width: 500px;
         padding: 30px;
         padding-top: 15px + $pie-chart-size / 2;
+        pointer-events: none;
+        position: relative;
+
+        @media(max-width: 1000px) {
+            margin-left: $standard-horizontal-page-padding;
+            margin-right: $standard-horizontal-page-padding;            
+        }
+
+        @media (max-width: $profile-break) {
+            margin-left: $standard-horizontal-page-padding / 2;
+            margin-right: $standard-horizontal-page-padding / 2;            
+        }
+
+        button {
+            pointer-events: all;
+        }
+
+        #my-badges-footer {
+            bottom: 0;
+            left: 50%;
+            position: absolute;
+            text-align: center;
+            transform: translate(-50%, 50%);
+            width: 100%;
+
+            button {
+                margin: 0 20px;
+            }
+        }
     }
 
     .tag {

@@ -4,8 +4,8 @@
     margin-right: $menu-width;
     min-height: 100vh;
     padding-bottom: 50px;
-    padding-left: 130px;
-    padding-right: 130px;
-    padding-top: calc(#{$login-bar-height} + 50px);
+    padding-left: $standard-horizontal-page-padding;
+    padding-right: $standard-horizontal-page-padding;
+    padding-top: calc(#{$login-bar-height} + #{$page-padding-top});
     position: relative;
 }

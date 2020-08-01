@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Square = ({ className, color, opacity, top, left }) => {
+const Square = ({ className, color, opacity, top, left, width, height }) => {
   const divClassName = classnames(['react-sq', className]);
   const style = {};
   if (color) style.background = color;
@@ -16,6 +16,12 @@ const Square = ({ className, color, opacity, top, left }) => {
   }
   if (opacity) {
     style.opacity = opacity;
+  }
+  if (width) {
+    style.width = width;
+  }
+  if (height) {
+    style.height = height;
   }
   if (left || top) style.position = 'absolute';
   return <div className={divClassName} style={style}/>;

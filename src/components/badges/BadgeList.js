@@ -21,7 +21,7 @@ const BadgeList = ({ badges }) => {
             >
               <div className="badge-list-badge">
                 <img src={badge.image} />
-                <div className="badge-list-badge-title">{badge.name}</div>
+                <div className="badge-list-badge-title">{badge.name || badge.badgeclassName}</div>
               </div>
             </Link>
           ))}

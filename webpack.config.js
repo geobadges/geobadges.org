@@ -1,5 +1,5 @@
 const { dirname, join, resolve } = require('path')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CnameWebpackPlugin = require('cname-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
@@ -39,11 +39,24 @@ const patterns = [
   },
   {
     from: 'node_modules/url-search-params-polyfill/index.js',
-    to: 'polyfills/url-search-params.js'
-  }
+    to: join(OUTPUT_PATH, '/static/js/polyfills/url-search-params.js')
+  },
+  {
+    from: 'node_modules/jszip/dist/jszip.min.js',
+    to: join(OUTPUT_PATH, '/static/js/jszip.min.js')
+  },
+  {
+    from: 'node_modules/file-saver/dist/FileSaver.min.js',
+    to: join(OUTPUT_PATH, '/static/js/FileSaver.min.js')
+  },
+  {
+    from: 'node_modules/file-saver/dist/FileSaver.min.js.map',
+    to: join(OUTPUT_PATH, '/static/js/FileSaver.min.js.map')
+  }  
 ];
 
 const plugins = [
+  new CleanWebpackPlugin(),
   new DotEnvPlugin(),
   new DefinePlugin({
     PUBLIC_PATH: JSON.stringify(PUBLIC_PATH)
