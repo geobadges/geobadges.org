@@ -1,4 +1,6 @@
 $badge-details-box-padding: 40px;
+$badge-details-inner-padding: 20px;
+$badge-expiration-warning-height: 25px;
 
 #badge {
   background: $background-gray;
@@ -127,19 +129,41 @@ $badge-details-box-padding: 40px;
           color: $light-gray;
           font-size: 14px;
           font-weight: bold;
-          margin-bottom: 10px;
+          left: $badge-details-inner-padding;
+          height: $badge-expiration-warning-height;
+          position: absolute;
+          right: $badge-details-inner-padding;
+          top: $badge-details-inner-padding;
         }
         .badge-description {
+          bottom: $badge-details-inner-padding;
           color: whitesmoke;
           font-size: 14px;
+          left: $badge-details-inner-padding;
           overflow-y: auto;
-          padding: 15px;
+          padding: 0;
+          padding-right: $badge-details-inner-padding;
+          position: absolute;
+          right: 0;
+          top: $badge-details-inner-padding;
+        }
+        .badge-expiration + .badge-description {
+          top: calc(#{$badge-details-inner-padding} + #{$badge-expiration-warning-height} + 10px);          
         }
         .badge-criteria {
+          bottom: $badge-details-inner-padding;
           color: whitesmoke;
           font-size: 14px;
+          left: $badge-details-inner-padding;
           overflow-y: auto;
-          padding: 15px;
+          padding: 0;
+          position: absolute;
+
+          // doing this to make the scroll bar is outside the text
+          padding-right: $badge-details-inner-padding;
+          right: 0;
+
+          top: $badge-details-inner-padding;
         }
       }
     }

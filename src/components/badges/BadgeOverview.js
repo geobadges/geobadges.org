@@ -20,7 +20,7 @@ const BadgeDescription = ({ description, expires }) => {
   return (
     <>
       {expirationText && <div className="badge-expiration">{expirationText}</div>}
-      <div className="badge-description" style={{maxHeight: (expirationText ? 290 : 320)}}>{badge?.description}</div>
+      <div className="badge-description">{badge?.description}</div>
     </>
   );
 };

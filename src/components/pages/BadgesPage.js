@@ -49,7 +49,7 @@ const Badges = (props) => {
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('diy') || t.toLowerCase().includes('maker')))
     },
     {
-      title: 'Everything',
+      title: 'All',
       badges: badges.filter(badge => badge.image)
     }
   ].filter(row => row.badges.length > 0);
