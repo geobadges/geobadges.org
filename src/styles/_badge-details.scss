@@ -53,6 +53,7 @@ $badge-expiration-warning-height: 25px;
           color: whitesmoke;
           font-size: 26px;
           font-weight: 600;
+          margin-top: 20px;
       }
       .badge-card-issuer {
           font-family:$main-font;
@@ -135,35 +136,24 @@ $badge-expiration-warning-height: 25px;
           right: $badge-details-inner-padding;
           top: $badge-details-inner-padding;
         }
-        .badge-description {
+        .badge-description, .badge-criteria {
           bottom: $badge-details-inner-padding;
           color: whitesmoke;
           font-size: 14px;
           left: $badge-details-inner-padding;
-          overflow-y: auto;
-          padding: 0;
-          padding-right: $badge-details-inner-padding;
-          position: absolute;
-          right: 0;
-          top: $badge-details-inner-padding;
-        }
-        .badge-expiration + .badge-description {
-          top: calc(#{$badge-details-inner-padding} + #{$badge-expiration-warning-height} + 10px);          
-        }
-        .badge-criteria {
-          bottom: $badge-details-inner-padding;
-          color: whitesmoke;
-          font-size: 14px;
-          left: $badge-details-inner-padding;
+          overflow-x: hidden;
           overflow-y: auto;
           padding: 0;
           position: absolute;
 
           // doing this to make the scroll bar is outside the text
           padding-right: $badge-details-inner-padding;
-          right: 0;
-
+          right: 0;   
           top: $badge-details-inner-padding;
+          word-wrap: break-word;                 
+        }
+        .badge-expiration + .badge-description {
+          top: calc(#{$badge-details-inner-padding} + #{$badge-expiration-warning-height} + 10px);          
         }
       }
     }
