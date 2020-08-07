@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import { push } from "connected-react-router";
-import { useClickAway } from "react-use";
+// import { useClickAway } from "react-use";
 import classnames from "classnames";
 
 import setError from "../../actions/set-error";
@@ -46,9 +46,9 @@ const Issuer = ({ entityId }) => {
     ? issuerCard
     : "title";
 
-  useClickAway(ref, () => {
-    if (issuerSelected) dispatch(push(`/issuers`));
-  });
+  // useClickAway(ref, () => {
+  //   if (issuerSelected) dispatch(push(`/issuers`));
+  // });
 
   // set transform, translate and scale command depending on offset from the left and top
   const style = {};

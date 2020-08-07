@@ -351,6 +351,14 @@ $expanded-issuer-connect-card-footer-height: 100px;
       }
     }
   }
+  #show-archived-toggle {
+    color: $dark-gray;
+    cursor: pointer;
+    font-family: Kanit, sans-serif;
+    font-size: 12px;
+    margin-bottom: 50px;
+    text-decoration: underline;
+  }
   #issuers-overlay {
     background: rgba(0, 0, 0, 0.85);
     bottom: 0;
