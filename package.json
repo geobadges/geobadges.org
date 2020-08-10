@@ -11,7 +11,7 @@
     "build:prod": "CNAME='beta.geobadges.io' npm run build",
     "lint": "eslint 'src/**/*' --ext .js,.jsx --fix  --ignore-pattern '*.html'",
     "prettier": "pretty-quick --staged",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --disableHostCheck=true --historyApiFallback=true",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --disableHostCheck=true --historyApiFallback=true --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

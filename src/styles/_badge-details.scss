@@ -1,6 +1,7 @@
-$badge-details-box-padding: 40px;
+$badge-details-box-horizontal-padding: 40px;
 $badge-details-inner-padding: 20px;
 $badge-expiration-warning-height: 25px;
+$badge-details-box-bottom-padding: 50px;
 
 #badge {
   background: $background-gray;
@@ -90,9 +91,9 @@ $badge-expiration-warning-height: 25px;
       #badge-details-card-tabs {
         font-family: $main-font;
         height: 50px;
-        left: $badge-details-box-padding;
+        left: $badge-details-box-horizontal-padding;
         position: absolute;
-        right: $badge-details-box-padding;
+        right: $badge-details-box-horizontal-padding;
         top: 50px;
         .badge-details-card-tab {
           color: #7E787C;
@@ -119,10 +120,10 @@ $badge-expiration-warning-height: 25px;
         background-image: linear-gradient(rgba(247, 98, 58, 0.7), #AE341C);
         bottom: 50px;
         border-radius: 10px;
-        left: $badge-details-box-padding;
+        left: $badge-details-box-horizontal-padding;
         padding: 30px 15px;
         position: absolute;
-        right: $badge-details-box-padding;
+        right: $badge-details-box-horizontal-padding;
         top: 100px;
         font-family: $secondary-font;
 
@@ -155,6 +156,73 @@ $badge-expiration-warning-height: 25px;
         .badge-expiration + .badge-description {
           top: calc(#{$badge-details-inner-padding} + #{$badge-expiration-warning-height} + 10px);          
         }
+        .badge-claim-details {
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          .enter-claim-code-wrapper {
+            color: white;
+            height: 37.5%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            .enter-claim-code-inner {
+              height: 60px;
+              left: 50%;
+              position: absolute;
+              transform: translate(-50%, -50%);
+              top: 50%;
+              width: 100%;
+              .enter-claim-code-message {
+                color: white;
+                font-family: Kanit, sans-serif;
+                font-size: 12px;
+              }
+              .enter-claim-code-input-wrapper {
+                margin: 0 auto;
+                margin-top: 12.5px;
+                max-width: 200px;
+                text-align: center;
+                input {
+                  background: transparent;
+                  border-bottom: 1px solid white;
+                  border-left: none;
+                  border-right: none;
+                  border-top: none;
+                  color: white;
+                  font-size: 20px;
+                  font-weight: bold;
+                  text-align: center;
+                  text-transform: uppercase;
+                  width: 100%;
+                  &:focus {
+                    border: none;
+                    border-bottom: 3px solid white;
+                    border-top: 2px solid transparent;
+                    outline: none;
+                  }
+                  // &::-webkit-input-placeholder, ::placeholder, :ms-input-placeholder, ::ms-input-placeholder {
+                  //   color: white;
+                  //   font-weight: bold;
+                  // } 
+                }             
+              }
+            }
+          }
+        }
+      }
+    }
+    .badge-details-claim-button-wrapper {
+      bottom: $badge-details-box-bottom-padding;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 50%);
+      button {
+        font-size: 20px;
+        padding-top: 5px;
       }
     }
   }

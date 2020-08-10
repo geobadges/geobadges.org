@@ -65,3 +65,7 @@ dist/
 
 # webpack stats file
 stats.json
+
+
+*.ai
+src/images/*.ai

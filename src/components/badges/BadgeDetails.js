@@ -1,32 +1,50 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { connect, useDispatch } from "react-redux";
 import { Redirect, Route, Switch } from "react-router";
 import { useHistory, useRouteMatch, NavLink } from "react-router-dom";
+import { push } from "connected-react-router";
 import { FaTimes } from "react-icons/fa";
 import classnames from "classnames";
 import pick from "lodash.pick";
-import { useClickAway } from "react-use";
+// import { useClickAway } from "react-use";
 
 import clearCurrentBadge from "../../actions/clear-current-badge";
 import setCurrentBadge from "../../actions/set-current-badge";
+import setError from '../../actions/set-error';
+import submitClaimCode from '../../actions/submit-claim-code';
 import BadgeOverview from "../../components/badges/BadgeOverview";
 import BadgeCriteria from "../../components/badges/BadgeCriteria";
+import BadgeClaim from "../../components/badges/BadgeClaim";
+import CornerRibbon from "../../components/CornerRibbon";
+import StylishButton from '../StylishButton';
 import Stats from "../Stats.js";
+import useBackpack from '../../hooks/useBackpack';
 import useCurrentBadge from "../../hooks/useCurrentBadge";
+import useLoggedIn from '../../hooks/useLoggedIn';
+import { LOG_IN_FIRST } from '../../constants/messages';
+
 
 const BadgeDetails = (props) => {
   console.log("starting to render BadgeDetails with props", props);
+  const backpack = useBackpack();
+  console.log("backpack:", backpack);
   const badge = useCurrentBadge();
+  console.log("badge:", badge);
   const dispatch = useDispatch();
   const history = useHistory();
   const ref = useRef();
+  const [claimCode, setClaimCode] = useState(null);
+  const loggedIn = useLoggedIn();
+
+  const claimed = badge?.entityId && !!backpack?.find(b => b.badgeclass === badge.entityId);
+  console.log("claimed:", claimed);
 
   const close = () => {
     dispatch(clearCurrentBadge());
     history.push("/badges");
   };
-  useClickAway(ref, close);
+  // useClickAway(ref, close);
 
   const active = badge !== null;
 
@@ -45,7 +63,7 @@ const BadgeDetails = (props) => {
     expires,
     description = "No Description Available",
     image,
-    name,
+    name: badgeName,
     issuer = {},
     skill,
     awarded,
@@ -53,6 +71,43 @@ const BadgeDetails = (props) => {
   } = badge || {};
 
   const selectedTab = "criteria";
+
+  const handleSubmitClaimCode = () => {
+    console.log("starting handleSubmitClaimCode");
+    if (claimCode && claimCode.trim() !== '') {
+      console.log("submitting claim code of", claimCode);
+      dispatch(submitClaimCode({ badgeName, claimCode, issuerName: issuer.name }));
+    }
+  };
+
+  const handleClickClaim = () => {
+    console.log("starting handleClickClaim");
+    if (claimed) {
+      dispatch(setError('You have already claimed this badge!'));
+    } else if (tab !== 'claim') {
+      if (badgeId) {
+        if (loggedIn) {
+          dispatch(push(`/badges/${badgeId}/claim`))
+        } else {
+          dispatch(setError(LOG_IN_FIRST));
+        }
+      } else {
+        dispatch(push(`/badges`));
+        if (!loggedIn) dispatch(setError(LOG_IN_FIRST));
+      }
+    } else if (!loggedIn) {
+      dispatch(setError(LOG_IN_FIRST));
+    } else if (claimCode && claimCode.trim() !== '') {
+      if (loggedIn) {
+        console.log("submitting claim code of", claimCode);
+        dispatch(submitClaimCode({ badgeName, claimCode, issuerName: issuer.name }));  
+      } else {
+        dispatch(setError(LOG_IN_FIRST));
+      }
+    } else {
+      dispatch(setError('You must provide evidence before submitting your claim!'));
+    }
+  }
 
   return (
     <section
@@ -65,10 +120,11 @@ const BadgeDetails = (props) => {
 
       <div id="badge-details-card-wrapper" ref={ref}>
         <div id="badge-details-card-front" className="badge-details-card">
+          {claimed && <CornerRibbon fill="#D7CDCC" text="Claimed"/>}
           <div className="badge-details-card-img-wrapper">
             <img src={image} />
           </div>
-          <div className="badge-card-title">{name}</div>
+          <div className="badge-card-title">{badgeName}</div>
           <div className="badge-card-issuer">{issuer.name}</div>
           <Stats
             keys={["level", "awarded", "duration"]}
@@ -104,7 +160,14 @@ const BadgeDetails = (props) => {
                 path={`/badges/:badgeId/criteria`}
                 render={() => <BadgeCriteria />}
               />
+              <Route
+                path={`/badges/:badgeId/claim`}
+                render={() => <BadgeClaim onClaimCodeChange={setClaimCode} onClaimCodeSubmit={handleSubmitClaimCode}/>}
+              />              
             </Switch>
+          </div>
+          <div className="badge-details-claim-button-wrapper">
+            <StylishButton text={claimed ? "Claimed!" : "Claim"} onClick={handleClickClaim}/>
           </div>
         </div>
       </div>
@@ -115,6 +178,6 @@ const BadgeDetails = (props) => {
 BadgeDetails.propTypes = {};
 
 const mapStateToProps = (state) =>
-  pick(state, ["currentBadge", "router", "user"]);
+  pick(state, ["auth", "currentBadge", "router", "user"]);
 
 export default connect(mapStateToProps)(BadgeDetails);
