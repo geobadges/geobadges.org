@@ -4,7 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { push } from "connected-react-router";
 import classnames from "classnames";
 import pick from "lodash.pick";
-import { FaFacebook, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 import setError from "../../actions/set-error";
 import useIssuer from "../../hooks/useIssuer";
