@@ -14,6 +14,7 @@ import useIssuers from "../../hooks/useIssuers";
 
 const ARCHIVED_NAMES = [
   'Crisis Mappers',
+  'GeoBadges',
   'GeoMakers',
   'Mapillary'
 ];
@@ -42,10 +43,14 @@ const IssuersPage = ({ currentIssuer, router }) => {
   const activeIssuers = issuers.filter(issuer => !ARCHIVED_NAMES.includes(issuer.name));
   const archivedIssuers = issuers.filter(issuer => ARCHIVED_NAMES.includes(issuer.name));
 
+  const close = () => {
+    dispatch(push("/issuers"));
+  };
+
   return (
     <section id="issuers" className="page">
       {displayOverlay && (
-        <div className="details-page-close-icon">
+        <div className="details-page-close-icon" onClick={close}>
           <FaTimes />
         </div>
       )}
