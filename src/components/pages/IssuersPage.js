@@ -40,8 +40,9 @@ const IssuersPage = ({ currentIssuer, router }) => {
 
   const displayOverlay = issuerId || currentIssuer;
 
-  const activeIssuers = issuers.filter(issuer => !ARCHIVED_NAMES.includes(issuer.name));
-  const archivedIssuers = issuers.filter(issuer => ARCHIVED_NAMES.includes(issuer.name));
+  const issuersWithBadges = issuers.filter(issuer => issuer.stats.badges > 0);
+  const activeIssuers = issuersWithBadges.filter(issuer => !ARCHIVED_NAMES.includes(issuer.name));
+  const archivedIssuers = issuersWithBadges.filter(issuer => ARCHIVED_NAMES.includes(issuer.name));
 
   const close = () => {
     dispatch(push("/issuers"));
