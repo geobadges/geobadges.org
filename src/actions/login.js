@@ -4,7 +4,7 @@ import client from "../api-client";
 import getProfile from "./get-profile";
 import setError from "./set-error";
 import clearMessage from "./clear-message";
-import { LOG_IN_FIRST } from "../constants/messages";
+import { LOGIN_FAILURE, LOG_IN_FIRST } from "../constants/messages";
 
 export default function login({ username, password, next }) {
   return async function (dispatch, getState) {
@@ -28,13 +28,13 @@ export default function login({ username, password, next }) {
         dispatch(push(next));
       }
 
-      if (state?.message?.text === LOG_IN_FIRST) {
+      if ([LOG_IN_FIRST, LOGIN_FAILURE].includes(state?.message?.text)) {
         dispatch(clearMessage());
       }
     } catch (error) {
       console.error(error);
       dispatch(
-        setError("Failed to Log In. Please check your username and password.")
+        setError(LOGIN_FAILURE)
       );
     }
   };
