@@ -1,3 +1,39 @@
 #resources {
+    
     font-size: 18px;
+    color: $blue-font;
+    
+    #faq-image {
+        background: url("/static/images/faq_background.png");
+        background-size: cover;
+        position: relative;
+        height: 500px;
+        width: calc(100% - #{$menu-width});
+        left: 0;
+        top: 0;
+    }
+    
+    #faq-toggle {
+        position: absolute;
+        z-index: 2;
+        color: $white-font;
+        font-size: 24px;
+        
+    }
+    
+    #earnerFAQ {
+        font-family: $secondary-font;
+        font-size: 1rem;
+        max-width: 60%;
+        margin-left: 10%;
+        text-align: left;
+    }
+    
+    #issuerFAQ {
+        font-family: $secondary-font;
+        font-size: 1rem;
+        max-width: 60%;
+        margin-left: 10%;
+        text-align: left;
+    }
 }

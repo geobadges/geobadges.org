@@ -40,6 +40,14 @@ const Badges = (props) => {
       title: 'OpenStreetMap',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('osm') || t.toLowerCase().includes('openstreetmap')))
     },
+    {
+      title: 'QGIS',
+      badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('qgis')))
+    },
+    {
+      title: 'Human Geography',
+      badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('human geography')))
+    },
         {
       title: 'Developer',
       badges: badges.filter(badge => badge.tags.some(t => t.toLowerCase().includes('developer') || t.toLowerCase().includes('code')))

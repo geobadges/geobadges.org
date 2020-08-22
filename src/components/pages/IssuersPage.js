@@ -50,6 +50,9 @@ const IssuersPage = ({ currentIssuer, router }) => {
 
   return (
     <section id="issuers" className="page">
+    <div id="new-issuer">
+      <a href="https://issuers.geobadges.io/auth/login"><button className="stylish-button">Become an Issuer </button></a>
+    </div>
       {displayOverlay && (
         <div className="details-page-close-icon" onClick={close}>
           <FaTimes />

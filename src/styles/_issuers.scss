@@ -13,6 +13,16 @@ $expanded-issuer-connect-card-footer-height: 100px;
   .details-page-close-icon {
     margin-top: $login-bar-height;
   }
+  #new-issuer {
+    height: 200px;
+    margin-top: 25px;
+   
+   .stylish-button {
+     font-size: 20px;
+   } 
+
+  }
+  
   .issuer {
     .issuer-title-card {
       background: white;
