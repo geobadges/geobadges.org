@@ -32,7 +32,7 @@ const IssuerTitleCard = ({ entityId, router }) => {
     return (
         <li className={className} onClick={handleClick}>
             <div className="img-wrapper">
-                <img src={image} alt={`Logo for ${name}`}/>
+                {image && <img src={image} alt={`Logo for ${name}`}/>}
             </div>
             <div className="issuer-name-bar">
                 <div className="issuer-name">{name}</div>

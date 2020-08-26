@@ -12,12 +12,9 @@ import IssuerCardStack from "../issuer/IssuerCardStack";
 import useIssuer from "../../hooks/useIssuer";
 import useIssuers from "../../hooks/useIssuers";
 
-const ARCHIVED_NAMES = [
-  'Crisis Mappers',
-  'GeoBadges',
-  'GeoMakers',
-  'Mapillary'
-];
+import InactiveIssuersText from "../../data/inactive-issuers.txt";
+
+const ARCHIVED_NAMES = InactiveIssuersText.split(/\r?\n/g).map(line => line.trim());
 
 const IssuersPage = ({ currentIssuer, router }) => {
   const dispatch = useDispatch();
