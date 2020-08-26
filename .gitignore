@@ -61,6 +61,8 @@ typings/
 .next
 
 # other files
+.DS_Store
+.env.local
 dist/
 
 # webpack stats file

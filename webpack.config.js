@@ -180,7 +180,11 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.txt$/i,
+        use: 'raw-loader',
+      }      
     ]
   },
   plugins,
