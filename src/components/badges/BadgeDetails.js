@@ -7,7 +7,6 @@ import { push } from "connected-react-router";
 import { FaTimes } from "react-icons/fa";
 import classnames from "classnames";
 import pick from "lodash.pick";
-// import { useClickAway } from "react-use";
 
 import clearCurrentBadge from "../../actions/clear-current-badge";
 import setCurrentBadge from "../../actions/set-current-badge";
@@ -24,6 +23,9 @@ import useCurrentBadge from "../../hooks/useCurrentBadge";
 import useLoggedIn from '../../hooks/useLoggedIn';
 import { LOG_IN_FIRST } from '../../constants/messages';
 
+const isClaimable = badge => {
+  return !(badge?.tags?.map(tag => tag?.toLowerCase()).includes('unclaimable'));
+};
 
 const BadgeDetails = (props) => {
   console.log("starting to render BadgeDetails with props", props);
@@ -160,15 +162,15 @@ const BadgeDetails = (props) => {
                 path={`/badges/:badgeId/criteria`}
                 render={() => <BadgeCriteria />}
               />
-              <Route
+              {isClaimable(badge) && <Route
                 path={`/badges/:badgeId/claim`}
                 render={() => <BadgeClaim onClaimCodeChange={setClaimCode} onClaimCodeSubmit={handleSubmitClaimCode}/>}
-              />              
+              />}        
             </Switch>
           </div>
-          <div className="badge-details-claim-button-wrapper">
+          {isClaimable(badge) && <div className="badge-details-claim-button-wrapper">
             <StylishButton text={claimed ? "Claimed!" : "Claim"} onClick={handleClickClaim}/>
-          </div>
+          </div>}
         </div>
       </div>
     </section>
