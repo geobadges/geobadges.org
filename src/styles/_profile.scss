@@ -1,6 +1,7 @@
 $pie-chart-size: 300px;
 $profile-break: 750px;
 #profile {
+    font-family: $secondary-font;
     font-size: 12px;
     padding-left: 0px;
     padding-right: 0px;
@@ -16,6 +17,7 @@ $profile-break: 750px;
     }
 
     #profile-name {
+        font-family: $main-font !important;
         color: #D73F3F;
         font-weight: bold;
         font-size: 48px;
@@ -40,6 +42,7 @@ $profile-break: 750px;
         #profile-backpack-size {
             color: $dark-gray;
             font-size: 14pt;
+            font-weight: 400 !important;
             margin-top: 10px;
         }
     }
@@ -77,6 +80,11 @@ $profile-break: 750px;
         padding-top: 15px + $pie-chart-size / 2;
         pointer-events: none;
         position: relative;
+        
+        h1 {
+            font-family: $main-font !important;
+            font-weight: 600;
+        }
 
         @media(max-width: 1000px) {
             margin-left: $standard-horizontal-page-padding;

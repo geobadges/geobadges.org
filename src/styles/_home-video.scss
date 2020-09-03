@@ -66,13 +66,14 @@ $video-content-top: 325px;
         
     #video-content {
         font-family: $secondary-font;
-        font-size: 1rem;
+        font-size: 2vmin;
         font-weight: 400 !important;
         position: absolute;
         display: inline-block;
+        width: 45vw;
         max-height: calc(90vh - #{$video-content-top} - 40px);        
         max-width: 750px;
-        overflow: scroll;
+        overflow: auto;
         margin-top: $video-content-top;
         padding-left: 100px;
         margin-right: calc(#{$play-btn-right} + #{$play-btn-width} + 50px);

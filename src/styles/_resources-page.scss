@@ -1,27 +1,40 @@
 #resources {
-    
+    background-color: #f0d6a7;
     font-size: 18px;
-    color: $blue-font;
+    color: white;
     
     #faq-image {
-        background: url("/static/images/faq_background.png");
-        background-size: cover;
         position: relative;
-        height: 500px;
-        width: calc(100% - #{$menu-width});
-        left: 0;
-        top: 0;
+        // background: url("/static/images/faq_background.png");
+        // background-size: cover;
+        #img {
+            height: 500px;
+            width: calc(100% - #{$menu-width});
+            left: 0;
+            top: 0;
+            margin-bottom: 60px;
+        }
+       
+        #faq-toggle {
+            left: 15%;
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            a {
+                text-decoration: none;
+                h3 {
+                    color: white;
+                    font-size: 30px;
+                    text-decoration: none;
+                }
+            }
+        }
     }
-    
-    #faq-toggle {
-        position: absolute;
-        z-index: 2;
-        color: $white-font;
-        font-size: 24px;
-        
-    }
+
     
     #earnerFAQ {
+        position: relative;
+        background-color: transparent;
         font-family: $secondary-font;
         font-size: 1rem;
         max-width: 60%;
