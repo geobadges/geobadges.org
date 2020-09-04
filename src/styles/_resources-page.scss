@@ -1,31 +1,45 @@
 #resources {
-    background-color: #f0d6a7;
+    background-color: $background-gray;
     font-size: 18px;
-    color: white;
+    color: $blue-font;
     
     #faq-image {
+        height: 500px;
+        margin-right: #{$menu-width};
+        margin-top: #{$login-bar-height};
         position: relative;
-        // background: url("/static/images/faq_background.png");
-        // background-size: cover;
-        #img {
-            height: 500px;
-            width: calc(100% - #{$menu-width});
-            left: 0;
-            top: 0;
-            margin-bottom: 60px;
+        img {
+            height: 85%;
+            position: absolute;
+            right: calc(-1200px + 33%);
+            top: 50%;
+            transform: translateY(-50%);
         }
        
         #faq-toggle {
-            left: 15%;
+            left: 33%;
             position: absolute;
             top: 50%;
+            transform: translate(-50%, -50%);
             z-index: 2;
             a {
                 text-decoration: none;
                 h3 {
-                    color: white;
+                    border-bottom: 5px solid transparent;
+                    color: $blue-font;
                     font-size: 50px;
+                    padding-left: 5px;
                     text-decoration: none;
+
+                    // // inset
+                    // color: transparent;
+                    // text-shadow: 0px 4px 8px rgba(255,255,255,0.2);
+                    // -webkit-background-clip: text;
+                    // -moz-background-clip: text;
+                    // background-clip: text;        
+                }
+                &.resources-subpage-selected h3 {
+                    border-bottom-color: $orange;
                 }
             }
         }

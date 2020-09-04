@@ -8,10 +8,10 @@ const ResourcesPage = () => {
     return (
         <section id="resources">
             <div id="faq-image">
-                <img id="question-mark" src="/static/images/faq_background.png" alt="resources"/>
+                <img id="question-mark" src="/static/images/faq-bg.svg" alt="resources"/>
                 <div id="faq-toggle">
-                    <NavLink to="/resources/earners"><h3>Earners</h3></NavLink>
-                    <NavLink to="/resources/issuers"><h3>Issuers</h3></NavLink>
+                    <NavLink to="/resources/earners" activeClassName="resources-subpage-selected"><h3>Earners</h3></NavLink>
+                    <NavLink to="/resources/issuers" activeClassName="resources-subpage-selected"><h3>Issuers</h3></NavLink>
                 </div>            
             </div>
             <Switch>
