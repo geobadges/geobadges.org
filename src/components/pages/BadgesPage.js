@@ -43,6 +43,10 @@ const Badges = (props) => {
       badges: badges.filter(badge => !isLegacyBadge(badge) && badge.tags.some(t => t.toLowerCase().includes('advanced')))
     },
     {
+      title: 'YouthMappers Academy',
+      badges: badges.filter(badge => !isLegacyBadge(badge) &&  badge.tags.some(t => t.toLowerCase().includes('youthmappersacademy')))
+    },
+    {
       title: 'OpenStreetMap',
       badges: badges.filter(badge => !isLegacyBadge(badge) && badge.tags.some(t => t.toLowerCase().includes('osm') || t.toLowerCase().includes('openstreetmap')))
     },
