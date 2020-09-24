@@ -46,7 +46,7 @@ $video-content-top: 325px;
         padding-top: 20px;
         margin-left: 100px;
         margin-right: 50px;
-        color: white-smoke;
+        color: whitesmoke;
 
         @media screen and (max-width: 1000px) {
             font-size: 60px;
@@ -78,7 +78,7 @@ $video-content-top: 325px;
         padding-left: 100px;
         margin-right: calc(#{$play-btn-right} + #{$play-btn-width} + 50px);
         line-height: 140%;
-        color: white-smoke;
+        color: whitesmoke;
         * {
             font-weight: 400 !important;
         }
@@ -109,7 +109,7 @@ $video-content-top: 325px;
         right: $play-btn-right;
         bottom: 100px;
         display: inline-block;
-        color: white-smoke;
+        color: whitesmoke;
         
         &:hover {
             transform: scale(1.5);
