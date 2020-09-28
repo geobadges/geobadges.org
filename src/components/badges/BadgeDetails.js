@@ -22,9 +22,14 @@ import useBackpack from '../../hooks/useBackpack';
 import useCurrentBadge from "../../hooks/useCurrentBadge";
 import useLoggedIn from '../../hooks/useLoggedIn';
 import { LOG_IN_FIRST } from '../../constants/messages';
+import INACTIVE_ISSUERS from '../../data/inactive-issuers';
+
+const inactive_issuers = INACTIVE_ISSUERS.map(name => name.toLowerCase()) || [];
 
 const isClaimable = badge => {
-  return !(badge?.tags?.map(tag => tag?.toLowerCase()).includes('unclaimable'));
+  if (!badge) return false;
+  const tags = badge?.tags?.map(tag => tag?.toLowerCase()) || [];
+  return !(tags.includes('unclaimable') || tags.includes('legacy') || inactive_issuers.includes(badge.issuer.name.toLowerCase()));
 };
 
 const BadgeDetails = (props) => {
