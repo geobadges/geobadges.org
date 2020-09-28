@@ -26,3 +26,9 @@ Your organization’s Geobadges are visible on your issuer’s page. Navigate to
 If you would like to award the badge to multiple recipients, select “click here to bulk award” to upload a list of recipients that matches the suggested template offered. To award a single recipient, input their name and a means of contact. Next, you have the option to add a narrative, evidence that they met the criteria, or an expiration to the badge you are awarding. Once finished, click “award badge.”  
 
 The recipient will receive an email alert notifying them of their new badge! 
+
+
+
+# How do I share my company's social media links?
+
+Log in to the [issuers site](http://issuers.geobadges.io/) and edit the description of your issuer.  In the description add a separate line for each url that you would like to share.  The following are currently supported: Facebook, Github, Instagram, LinkedIn, and Twitter.
