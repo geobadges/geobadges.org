@@ -4,3 +4,4 @@ GeoAcademy
 GeoBadges
 GeoMakers
 Mapillary
+MapStory
