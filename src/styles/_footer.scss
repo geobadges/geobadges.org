@@ -1,0 +1,32 @@
+$footer-height: 50px;
+
+footer#main-geobadges-footer {
+    background: $dark-gray;
+    color: $light-gray;
+    font-family: 'Poppins';
+    font-size: 12px;
+    height: $footer-height;
+    line-height: $footer-height;
+    padding-right: $menu-width;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+
+    * {
+        vertical-align: middle;
+    }
+
+    div, span, a {
+        color: $light-gray;
+        line-height: $footer-height;
+        height: 100%;
+    }
+
+    svg {
+        height: calc(#{$footer-height} * 0.35);
+    }
+
+    #gb-logo-in-footer {
+        height: calc(#{$footer-height} * 0.75);
+    }
+}

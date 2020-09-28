@@ -8,13 +8,12 @@ import { FaTimes } from "react-icons/fa";
 import { useToggle } from 'react-use';
 
 import setError from "../../actions/set-error";
+import Footer from '../Footer';
 import IssuerCardStack from "../issuer/IssuerCardStack";
 import useIssuer from "../../hooks/useIssuer";
 import useIssuers from "../../hooks/useIssuers";
 
-import InactiveIssuersText from "../../data/inactive-issuers.txt";
-
-const ARCHIVED_NAMES = InactiveIssuersText.split(/\r?\n/g).map(line => line.trim());
+import ARCHIVED_NAMES from "../../data/inactive-issuers";
 
 const IssuersPage = ({ currentIssuer, router }) => {
   const dispatch = useDispatch();
@@ -46,24 +45,27 @@ const IssuersPage = ({ currentIssuer, router }) => {
   };
 
   return (
-    <section id="issuers" className="page">
-    <div id="new-issuer">
-      <a href="https://issuers.geobadges.io/auth/login"><button className="stylish-button">Become an Issuer </button></a>
-    </div>
-      {displayOverlay && (
-        <div className="details-page-close-icon" onClick={close}>
-          <FaTimes />
-        </div>
-      )}
-      {activeIssuers.map(({ entityId }) => {
-        return <IssuerCardStack entityId={entityId} key={entityId} />;
-      })}
-      {archivedIssuers.length > 0 && <div id="show-archived-toggle" onClick={toggleShowArchived}>{showArchived ? 'Hide Inactive Issuers' : 'Show Inactive Issuers'}</div>}
-      {showArchived && archivedIssuers.map(({ entityId }) => {
-        return <IssuerCardStack entityId={entityId} key={entityId} />;
-      })}      
-      {displayOverlay && <div id="issuers-overlay" />}
-    </section>
+    <>
+      <section id="issuers" className="page">
+      <div id="new-issuer">
+        <a href="https://issuers.geobadges.io/auth/login"><button className="stylish-button">Become an Issuer </button></a>
+      </div>
+        {displayOverlay && (
+          <div className="details-page-close-icon" onClick={close}>
+            <FaTimes />
+          </div>
+        )}
+        {activeIssuers.map(({ entityId }) => {
+          return <IssuerCardStack entityId={entityId} key={entityId} />;
+        })}
+        {archivedIssuers.length > 0 && <div id="show-archived-toggle" onClick={toggleShowArchived}>{showArchived ? 'Hide Inactive Issuers' : 'Show Inactive Issuers'}</div>}
+        {showArchived && archivedIssuers.map(({ entityId }) => {
+          return <IssuerCardStack entityId={entityId} key={entityId} />;
+        })}      
+        {displayOverlay && <div id="issuers-overlay" />}
+      </section>
+      <Footer/>
+    </>
   );
 };
 

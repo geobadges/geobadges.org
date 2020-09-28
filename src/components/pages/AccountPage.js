@@ -8,17 +8,22 @@ import LoginPage from './LoginPage';
 import ProfilePage from './ProfilePage';
 import RegisterPage from './RegisterPage';
 
+import Footer from '../Footer';
+
 import useLoggedIn from '../../hooks/useLoggedIn';
 
 const AccountPage = ({ user, router }) => {
   const loggedIn = useLoggedIn();
   return (
-    <Switch>
-      <Route path="/account/login" render={() => <LoginPage/>} />
-      <Route path="/account/new" render={() => <RegisterPage/>} />
-      <Route path="/account/profile" render={() => <ProfilePage/>} />
-      {loggedIn ? <Redirect to="/account/profile" /> : <Redirect to="/account/login?next=/account/profile" /> }
-    </Switch>
+    <>
+      <Switch>
+        <Route path="/account/login" render={() => <LoginPage/>} />
+        <Route path="/account/new" render={() => <RegisterPage/>} />
+        <Route path="/account/profile" render={() => <ProfilePage/>} />
+        {loggedIn ? <Redirect to="/account/profile" /> : <Redirect to="/account/login?next=/account/profile" /> }
+      </Switch>
+      <Footer/>
+    </>
   );
 };
 AccountPage.propTypes = {

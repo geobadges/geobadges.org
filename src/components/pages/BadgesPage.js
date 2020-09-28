@@ -11,6 +11,7 @@ import BadgeRow from '../badges/BadgeRow';
 import useBadges from '../../hooks/useBadges';
 import useCurrentBadge from '../../hooks/useCurrentBadge';
 
+import Footer from '../Footer';
 import BadgeDetails from '../../components/badges/BadgeDetails';
 
 import INACTIVE_ISSUERS from '../../data/inactive-issuers';
@@ -87,6 +88,7 @@ const Badges = (props) => {
           return <BadgeRow badges={badges} title={title} key={title} />
         })}
       </section>
+      <Footer/>
       <Route path={`/badges/:badgeId/:tab`} render={() => <BadgeDetails/>}/>
     </>
   );
