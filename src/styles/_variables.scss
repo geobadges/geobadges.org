@@ -6,10 +6,11 @@ $menu-width: 225px;
 $standard-horizontal-page-padding: 130px;
 $page-padding-top: 50px;
 
-$menu-link-color: white;
+$white: #E5DFDF; // #DFD8D7 or #e8e8e8 
+$menu-link-color: #f5f5f5;
 $light-gray: #D7CDCC;
 $dark-gray: #2C333B;
-$background-gray: #e5e5e5;
+$background-gray: #e8e8e8;
 $medium-gray: #828282;
 $rusty-background: rgba(174, 52, 28, 0.8); //#AE341C;
 $orange: #F64E21;
@@ -22,6 +23,6 @@ $main-font: 'Kanit', sans-serif;
 $secondary-font: 'Poppins', sans-serif;
 
 $blue-font: #1d263b;
-$white-font: #D7CDCC;
+$white-font: #E5DFDF;
 
 @import 'z-indexes';

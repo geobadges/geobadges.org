@@ -11,7 +11,7 @@ $video-content-top: 325px;
     position: relative;
     margin-right: $menu-width;
     height: $home-video-height;
-    background: #D7CCC8;
+    background: $white;
     
     #home-video-img {
         bottom: 0;
@@ -46,7 +46,7 @@ $video-content-top: 325px;
         padding-top: 20px;
         margin-left: 100px;
         margin-right: 50px;
-        color: whitesmoke;
+        color: $white;
 
         @media screen and (max-width: 1000px) {
             font-size: 60px;
@@ -70,7 +70,7 @@ $video-content-top: 325px;
         font-weight: 400 !important;
         position: absolute;
         display: inline-block;
-        width: 45vw;
+        width: 48vw;
         max-height: calc(90vh - #{$video-content-top} - 40px);        
         max-width: 750px;
         overflow: auto;
@@ -78,7 +78,7 @@ $video-content-top: 325px;
         padding-left: 100px;
         margin-right: calc(#{$play-btn-right} + #{$play-btn-width} + 50px);
         line-height: 140%;
-        color: whitesmoke;
+        color: $white;
         * {
             font-weight: 400 !important;
         }
@@ -109,7 +109,7 @@ $video-content-top: 325px;
         right: $play-btn-right;
         bottom: 100px;
         display: inline-block;
-        color: whitesmoke;
+        color: $white;
         
         &:hover {
             transform: scale(1.5);
@@ -147,7 +147,7 @@ $video-content-top: 325px;
         position: absolute;
         top: 25px;
         right: 25px;
-        color: whitesmoke;
+        color: $white;
         z-index: 5;
         font-size: 20px;
     }
