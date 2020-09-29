@@ -1,6 +1,9 @@
+## How do I become an issuer?
+We invite any and all geo-educators to become an issuer of Geobadges! If your organization hosts education events, seminars, or mapathons and you would like to recognize your students or participants with a Geobadge, please contact [geobadges@americangeo.org](mailto:geobadges@americangeo.org). We will assist you set up an account and start badging!
+
 ## How do I create a Geobadge?
 	
-Begin by logging into your organization's Geobadges account. Use the toolbar at the top left of the page to navigate to the “issuers” page and select your organization. Here, you click “Create a badge” and enter the image, description, and criteria necessary to receive your badge. You can also link the badge directly to your organization's webpage. Click “Create Badge” to finish.
+Begin by [logging in](https://issuers.geobadges.io/) to your organization's Geobadges account. Use the toolbar at the top left of the page to navigate to the “issuers” page and select your organization. Here, you click “Create a badge” and enter the image, description, and criteria necessary to receive your badge. You can also link the badge directly to your organization's webpage. Click “Create Badge” to finish. Always use a PNG or JPEG file type when uploading the image of your badge.
 
 ## What are Tags?
 
