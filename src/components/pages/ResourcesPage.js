@@ -1,12 +1,18 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import { useEffectOnce } from 'react-use';
 import earnerResourcesContent from '../../content/earnersFAQ.md';
 import issuerResourcesContent from '../../content/issuersFAQ.md';
 
 import Footer from '../Footer';
 
 const ResourcesPage = () => {
+    useEffectOnce(() => {
+        // make sure that when you switch to this page,
+        // you start at the top of the page
+        document.querySelector("html").scrollTop = 0;
+    });
     return (
         <>
             <section id="resources">
