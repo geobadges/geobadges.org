@@ -51,8 +51,11 @@ $profile-break: 750px;
         margin: 0 auto;
         margin-top: $page-padding-top;
         max-width: $pie-chart-size;
-        labelPosition: 25%;
-        segmentsShift: 5;
+        position: relative;
+        z-index: 999;
+        // labelPosition: 25%;
+        // segmentsShift: 5;
+
 
         @media (max-width: $profile-break) {
             margin-top: calc(#{$page-padding-top} + 75px);
