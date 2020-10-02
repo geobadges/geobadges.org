@@ -30,6 +30,11 @@ const App = () => {
         <Route path="/privacy" render={() => <PrivacyPolicyPage/>} />
         <Route path="/terms" render={() => <TermsOfServicePage/>} />
         <Route path="/resources" render={() => <ResourcesPage/>} />
+
+        {/*badgr redirects*/}
+        <Route path="/v1/user/forgot-password" render={props => <Redirect to={`/account/settings/password/reset${props.location.search}`}/>} />
+        <Route path="/public/issuers/:issuerId" render={props => <Redirect to={`/issuers/${props.match.params.issuerId}/title`}/>} />
+
         {loggedIn ? <Redirect to="/badges" /> : <Redirect to="/home" /> }
       </Switch>
       <Menu />
