@@ -6,6 +6,8 @@ import pick from 'lodash.pick';
 import useLoggedIn from '../hooks/useLoggedIn';
 
 import AccountPage from './pages/AccountPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import MessageBar from './MessageBar';
 import HomePage from './pages/HomePage';
 import BadgesPage from './pages/BadgesPage';
@@ -25,6 +27,8 @@ const App = () => {
       <Switch>
         <Route path="/home" render={() => <HomePage/>} />
         <Route path="/badges" render={() => <BadgesPage/>} />
+        <Route path="/account/settings/password/forgot" render={() => <ForgotPasswordPage/> } />
+        <Route path="/account/settings/password/reset" render={() => <ResetPasswordPage/> } />
         <Route path="/issuers/:issuerId?/:issuerCard?" render={() => <IssuersPage/>} />
         <Route path="/account" render={() => <AccountPage/>} />
         <Route path="/privacy" render={() => <PrivacyPolicyPage/>} />

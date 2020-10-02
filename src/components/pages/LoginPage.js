@@ -80,6 +80,8 @@ const LoginPage = ({ user, router }) => {
 
       </div>
       <Link to={`/account/new${next ? `?next=${next}` : ''}`} className="minor-link">new user</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Link to={`/account/settings/password/forgot${next ? `?next=${next}` : ''}`} className="minor-link">forgot password?</Link>
       <br/><br/><br/><br/>
       <StylishButton className="acct-login-button" onClick={handleLogin} text="Login"/>
     </section>

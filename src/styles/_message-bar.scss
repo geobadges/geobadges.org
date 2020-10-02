@@ -1,4 +1,5 @@
 $message-bar-padding: 15px;
+$close-icon-size: 20px;
 
 .gb-message-bar {
     color: white;
@@ -6,6 +7,7 @@ $message-bar-padding: 15px;
     font-size: 14px;
     left: 0;
     padding: $message-bar-padding;
+    padding-right: calc(#{$message-bar-padding} + #{$close-icon-size} + #{$message-bar-padding});
     position: fixed;
     right: $menu-width;
     top: $login-bar-height;
@@ -13,7 +15,7 @@ $message-bar-padding: 15px;
 
     svg {
         cursor: pointer;
-        font-size: 20px;
+        font-size: $close-icon-size;
         position: absolute;
         right: $message-bar-padding;
         top: 50%;

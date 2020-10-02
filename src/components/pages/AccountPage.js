@@ -20,7 +20,7 @@ const AccountPage = ({ user, router }) => {
         <Route path="/account/login" render={() => <LoginPage/>} />
         <Route path="/account/new" render={() => <RegisterPage/>} />
         <Route path="/account/profile" render={() => <ProfilePage/>} />
-        {loggedIn ? <Redirect to="/account/profile" /> : <Redirect to="/account/login?next=/account/profile" /> }
+        {loggedIn ? <Redirect to="/account/profile"/> : <Redirect to="/account/login?next=/account/profile" /> }
       </Switch>
       <Footer/>
     </>

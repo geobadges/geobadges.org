@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TextInput = ({ columnStart, columnEnd, onChange, onEnter, placeholder, row, type="text", value }) => {
-  const paddingLeft = 130;
-  const paddingTop = 50;
+const TextInput = ({ columnStart, columnEnd, onChange, onEnter, paddingLeft=130, paddingTop=50, placeholder, row, type="text", value }) => {
   const size = 50;
   const handleChange = e => onChange(e.target.value);
   const handleKeyDown = e => e.code === 'Enter' && onEnter(e.target.value);
@@ -27,6 +25,9 @@ TextInput.propTypes = {
   columnStart: PropTypes.number.isRequired,
   columnEnd: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  onEnter: PropTypes.func,
+  paddingLeft: PropTypes.number,
+  paddingTop: PropTypes.number,
   row: PropTypes.number.isRequired,
   type: PropTypes.string,
   value: PropTypes.string
