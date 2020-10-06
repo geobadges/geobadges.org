@@ -20,6 +20,10 @@ const AccountPage = ({ user, router }) => {
         <Route path="/account/login" render={() => <LoginPage/>} />
         <Route path="/account/new" render={() => <RegisterPage/>} />
         <Route path="/account/profile" render={() => <ProfilePage/>} />
+
+        {/*badgr redirects*/}
+        <Route path="/account/register" render={props => <Redirect to={`/account/new`}/>} />
+
         {loggedIn ? <Redirect to="/account/profile"/> : <Redirect to="/account/login?next=/account/profile" /> }
       </Switch>
       <Footer/>
