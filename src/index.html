@@ -13,7 +13,7 @@
 
         // newPathName is usually something like '/home'
         var newPathName = (
-          window.location.pathname + window.location.search.match(pattern)[0].substring(3)
+          window.location.pathname + decodeURIComponent(window.location.search.match(pattern)[0].substring(3))
         ).replace('//', '/');
         console.log("[index.html] newPathName:", newPathName);
 
