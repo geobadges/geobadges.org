@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Text = ({ children, columnStart, columnEnd, row }) => {
-  const paddingLeft = 130;
-  const paddingTop = 50;
-  const size = 50;
+const Text = ({ children, columnStart, columnEnd, paddingLeft=130, paddingTop=50, row, size=50, textAlign="left" }) => {
   const style = {
     color: '#D7CDCC',
     fontFamily: 'Kanit',
@@ -12,6 +9,7 @@ const Text = ({ children, columnStart, columnEnd, row }) => {
     // height: size,
     left: paddingLeft + (columnStart-1) * size,
     position: 'absolute',
+    textAlign,
     top: (paddingTop + (row-1) * size) + size / 2,
     transform: 'translateY(-50%)',
     width: (columnEnd - columnStart + 1) * size

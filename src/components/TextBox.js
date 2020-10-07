@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import Rect from './Rect';
 import Text from './Text';
 
-const TextBox = ({ opacity, row, columnStart, columnEnd, text }) => {
+const TextBox = ({ opacity, row, columnStart, columnEnd, paddingLeft, paddingTop, text, textAlign="center" }) => {
     return (
         <>
-            <Rect opacity={opacity} row={row} columnStart={columnStart} columnEnd={columnEnd}/>
-            <Text row={row} columnStart={columnStart} columnEnd={columnEnd}>{text}</Text>
+            <Rect opacity={opacity} row={row} columnStart={columnStart} columnEnd={columnEnd} paddingLeft={paddingLeft} paddingTop={paddingTop}/>
+            <Text row={row} columnStart={columnStart} columnEnd={columnEnd} paddingLeft={paddingLeft} paddingTop={paddingTop} textAlign={textAlign}>{text}</Text>
         </>
     );
 };

@@ -4,7 +4,7 @@
     <script>
       // before anything else change ?p=/home to /home
       if (window.location.search.indexOf('p=') > -1) {
-        var pattern = /(\?|&)p=[/a-z-_0-9]{3,500}/;
+        var pattern = /(\?|&)p=[/A-Za-z-_0-9]{3,500}/;
         var newSearch = window.location.search
           .replace(pattern, '') // remove p=... param from url
           .replace(/^./, '?'); // mark sure starting search param in a question mark

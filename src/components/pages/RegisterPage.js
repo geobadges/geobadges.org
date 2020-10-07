@@ -133,7 +133,7 @@ const RegisterPage = ({ user, router }) => {
       </div>
       <Link to={`/account/login${next ? `?next=${next}` : ''}`} className="minor-link">Already a User?</Link>
       <br/><br/><br/><br/>
-      <span>By Registering you Agree to <Link to={`/account/tos`} className="minor-link" target="_blank">these Terms of Service</Link></span>
+      <span>By Registering you Agree to <Link to={`/account/terms`} className="minor-link" target="_blank">these Terms of Service</Link></span>
       <br/><br/><br/><br/>
       <StylishButton className="acct-login-button" onClick={handleRegister} text="Register"/>
     </section>

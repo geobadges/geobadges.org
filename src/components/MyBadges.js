@@ -48,7 +48,7 @@ const MyBadges = ({ }) => {
                 {numBadges > 0 && <BadgeList badges={backpack} />}
             </div>
             <div id="my-badges-footer">
-                <StylishButton text="Upload Badge"/>
+                {/* <StylishButton text="Upload Badge"/> */}
                 <StylishButton text="Export Badges" onClick={handleExport}/>
             </div>
         </div>

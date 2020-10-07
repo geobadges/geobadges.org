@@ -22,7 +22,7 @@ const ProfilePage = ({ user, router }) => {
   console.log("backpack.length;", count);
 
   if (!user) {
-    return <Redirect to="/account/login?next=/account/profile/settings"/>;
+    return <Redirect to="/account/login?next=/account/profile/badges"/>;
   }
 
   const subpages = [
@@ -61,11 +61,11 @@ const ProfilePage = ({ user, router }) => {
                 dispatch(push(url));
               }
             } else if (subpage === 'Settings') {
-                const url = `/account/profile/settings`;
-                if (router.location.pathname !== url) {
-                  dispatch(push(url));
-                }
+              const url = `/account/profile/settings`;
+              if (router.location.pathname !== url) {
+                dispatch(push(url));
               }
+            }
           }}
           viewBoxSize={[100, 100]}
         />
@@ -74,6 +74,7 @@ const ProfilePage = ({ user, router }) => {
         <Switch>
           <Route path="/account/profile/settings" render={() => <MySettings/>} />
           <Route path="/account/profile/badges" render={() => <MyBadges/>} />
+          <Redirect to="/account/profile/badges"/>
         </Switch>
       </div>
     </section>
