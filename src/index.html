@@ -2,20 +2,24 @@
 <html>
   <head>
     <script>
+      console.log("[index.html] window.location.search:", window.location.search);
       // before anything else change ?p=/home to /home
       if (window.location.search.indexOf('p=') > -1) {
-        var pattern = /(\?|&)p=[/A-Za-z-_0-9]{3,500}/;
+        var pattern = /(\?|&)p=[/A-Za-z-_0-9:%]{3,500}/;
         var newSearch = window.location.search
           .replace(pattern, '') // remove p=... param from url
           .replace(/^./, '?'); // mark sure starting search param in a question mark
+        console.log("[index.html] newSearch:", newSearch);
 
         // newPathName is usually something like '/home'
         var newPathName = (
           window.location.pathname + window.location.search.match(pattern)[0].substring(3)
         ).replace('//', '/');
+        console.log("[index.html] newPathName:", newPathName);
 
         // newUrl is usually something like .../badges?skillLevel=...
         var newUrl = newPathName + newSearch;
+        console.log("[index.html] newUrl:", newUrl);
 
         /* global history */
         history.replaceState({}, 'title', newUrl);
