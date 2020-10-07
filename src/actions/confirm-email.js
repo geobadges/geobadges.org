@@ -8,9 +8,11 @@ import setSuccess from './set-success';
 export default function confirmEmail({
     appId=1,
     confirmId,
+    debug=false,
     next='/account/profile/settings',
     token
 }) {
+    console.log("starting confirm-email action with", { appId, confirmId, next, token });
     return async function (dispatch) {
         if (!confirmId) {
             dispatch(setError('Email confirmation failed because there was no confirmation ID.  Please contact technical support at support@geobadges.io'));
@@ -22,6 +24,7 @@ export default function confirmEmail({
         const { data, success } = await client.confirmEmail({
             appId,
             confirmId,
+            debug: true,
             token
         });
         console.log({data, success});
