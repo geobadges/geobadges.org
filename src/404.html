@@ -6,8 +6,10 @@
 
       // like ?skillLevel=beginner
       var search = location.search;
+      console.log("search:", search);
 
       var pathName = location.pathname;
+      console.log("pathName:", pathName);
 
       var newSearch;
       if (search && search.length > 0 && search[0] === "?") {
@@ -15,9 +17,11 @@
       } else {
         newSearch = "?p=" + pathName;
       }
+      console.log("newSearch:", newSearch);
 
       // don't include the pathname (e.g. '/badges')
       const newUrl = location.origin + newSearch;
+      console.log("newUrl:", newUrl);
 
       location.replace(newUrl);
     </script>
