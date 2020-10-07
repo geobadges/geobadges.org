@@ -11,11 +11,14 @@
       var pathName = location.pathname;
       console.log("pathName:", pathName);
 
+      var pathNameEncoded = encodeURIComponent(pathName);
+      console.log("pathNameEncoded:", pathNameEncoded);
+
       var newSearch;
       if (search && search.length > 0 && search[0] === "?") {
-        newSearch = search + "&p=" + pathName;
+        newSearch = search + "&p=" + pathNameEncoded;
       } else {
-        newSearch = "?p=" + pathName;
+        newSearch = "?p=" + pathNameEncoded;
       }
       console.log("newSearch:", newSearch);
 
