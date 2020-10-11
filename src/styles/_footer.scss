@@ -32,4 +32,10 @@ footer#main-geobadges-footer {
     #gb-logo-in-footer {
         height: calc(#{$footer-height} * 0.75);
     }
+
+    @media screen and (max-width: 1000px) {
+        .gb-footer-more, .gb-footer-gs-logo, .gb-footer-gs-link, .gb-footer-second-by {
+            display: none;
+        }
+    }
 }
