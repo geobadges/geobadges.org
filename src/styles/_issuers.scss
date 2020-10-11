@@ -147,6 +147,7 @@ $expanded-issuer-connect-card-footer-height: 100px;
       height: $expanded-issuer-height;
       left: 50%;
       margin: 0;
+      max-width: calc(100% - 50px);
       position: absolute;
       top: calc(#{$login-bar-height} + 50px);
       transform: translateX(-50%);

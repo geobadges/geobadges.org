@@ -8,6 +8,11 @@
     padding-top: calc(#{$login-bar-height} + #{$page-padding-top});
     position: relative;
 
+    @media screen and (max-width: 1000px) {
+        padding-left: calc(#{$standard-horizontal-page-padding} / 2);
+        padding-right: calc(#{$standard-horizontal-page-padding} / 2);
+    }
+
     @media screen and (min-width: $menu-break) {
         margin-right: $menu-width;
     }

@@ -48,7 +48,7 @@ const LoginBar = ({ }) => {
         return (
             <div className="login-bar-background">
                 <div className="gb-login-bar">
-                    <FaUserCircle />
+                    <Link to="/account/login?next=/account/profile/badges"><FaUserCircle /></Link>
                     <LoginBarInput 
                         placeholder="Username"
                         onChange={setUsername}
