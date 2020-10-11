@@ -12,12 +12,15 @@ import clearCurrentBadge from "../../actions/clear-current-badge";
 import setCurrentBadge from "../../actions/set-current-badge";
 import setError from '../../actions/set-error';
 import submitClaimCode from '../../actions/submit-claim-code';
+import submitEvidence from '../../actions/submit-evidence';
+
 import BadgeOverview from "../../components/badges/BadgeOverview";
 import BadgeCriteria from "../../components/badges/BadgeCriteria";
 import BadgeClaim from "../../components/badges/BadgeClaim";
 import CornerRibbon from "../../components/CornerRibbon";
 import StylishButton from '../StylishButton';
 import Stats from "../Stats.js";
+
 import useBackpack from '../../hooks/useBackpack';
 import useCurrentBadge from "../../hooks/useCurrentBadge";
 import useLoggedIn from '../../hooks/useLoggedIn';
@@ -33,30 +36,30 @@ const isClaimable = badge => {
 };
 
 const BadgeDetails = (props) => {
-  console.log("starting to render BadgeDetails with props", props);
+  // console.log("starting to render BadgeDetails with props", props);
   const backpack = useBackpack();
-  console.log("backpack:", backpack);
+  // console.log("backpack:", backpack);
   const badge = useCurrentBadge();
-  console.log("badge:", badge);
+  // console.log("badge:", badge);
   const dispatch = useDispatch();
   const history = useHistory();
   const ref = useRef();
   const [claimCode, setClaimCode] = useState(null);
+  const [files, setFiles] = useState([]);
+  const [textEvidence, setTextEvidence] = useState("");
   const loggedIn = useLoggedIn();
 
   const claimed = badge?.entityId && !!backpack?.find(b => b.badgeclass === badge.entityId);
-  console.log("claimed:", claimed);
+  // console.log("claimed:", claimed);
 
   const close = () => {
     dispatch(clearCurrentBadge());
     history.push("/badges");
   };
-  // useClickAway(ref, close);
 
   const active = badge !== null;
 
   const match = useRouteMatch();
-  console.log("BadgeDetails is", match);
 
   const { badgeId, tab } = match.params;
 
@@ -108,6 +111,20 @@ const BadgeDetails = (props) => {
       if (loggedIn) {
         console.log("submitting claim code of", claimCode);
         dispatch(submitClaimCode({ badgeName, claimCode, issuerName: issuer.name }));  
+      } else {
+        dispatch(setError(LOG_IN_FIRST));
+      }
+    } else if (textEvidence || files?.length > 0) {
+      if (loggedIn) {
+        console.log("submitting evidence");
+        dispatch(submitEvidence({
+          badgeEntityId: entityId,
+          badgeName,
+          claimCode,
+          files,
+          issuerName: issuer.name,
+          text: textEvidence
+        }));  
       } else {
         dispatch(setError(LOG_IN_FIRST));
       }
@@ -169,11 +186,11 @@ const BadgeDetails = (props) => {
               />
               {isClaimable(badge) && <Route
                 path={`/badges/:badgeId/claim`}
-                render={() => <BadgeClaim onClaimCodeChange={setClaimCode} onClaimCodeSubmit={handleSubmitClaimCode}/>}
+                render={() => <BadgeClaim files={files} onClaimCodeChange={setClaimCode} onClaimCodeSubmit={handleSubmitClaimCode} setFiles={setFiles} setTextEvidence={setTextEvidence} textEvidence={textEvidence}/>}
               />}        
             </Switch>
-          </div>
-          {isClaimable(badge) && <div className="badge-details-claim-button-wrapper">
+          </div>       
+          {isClaimable(badge) && <div className="badge-details-claim-button-wrapper" data-claimed={claimed}>
             <StylishButton text={claimed ? "Claimed!" : "Claim"} onClick={handleClickClaim}/>
           </div>}
         </div>

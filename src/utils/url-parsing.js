@@ -46,9 +46,7 @@ export function getURLSearchParamsAsSimpleObj(search) {
         ''
       )
   }
-  
-  convertObjToSortedSearchString(getURLSearchParamsAsSimpleObj(window.location.search))
-  
+    
   export function getParamAsArray(params, key) {
     if (params[key]) {
       return params[key].split(',').map(item => item.trim())

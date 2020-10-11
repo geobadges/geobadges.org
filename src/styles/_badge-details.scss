@@ -2,6 +2,12 @@ $badge-details-box-horizontal-padding: 40px;
 $badge-details-inner-padding: 20px;
 $badge-expiration-warning-height: 25px;
 $badge-details-box-bottom-padding: 50px;
+$badge-details-claim-divider-height: 21px;
+$badge-claim-code-box-height: 37.5%;
+$badge-evidence-height: 170px;
+$evidence-textarea-height: calc(.8 * #{$badge-evidence-height});
+$evidence-file-name-size: 12px;
+$expanded-file-list-height: 40px;
 
 #badge {
   background: $background-gray;
@@ -164,7 +170,7 @@ $badge-details-box-bottom-padding: 50px;
           top: 0;
           .enter-claim-code-wrapper {
             color: white;
-            height: 37.5%;
+            height: $badge-claim-code-box-height;
             left: 0;
             position: absolute;
             right: 0;
@@ -212,6 +218,118 @@ $badge-details-box-bottom-padding: 50px;
               }
             }
           }
+          .badge-claim-details-divider {
+            background: white;
+            color: $rusty-background;
+            display: none;
+            font-size: 14px;
+            font-weight: bold;
+            height: $badge-details-claim-divider-height;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: $badge-claim-code-box-height;
+            width: 100%;
+          }
+          .badge-evidence {
+            border: 1px solid white;
+            bottom: 35px;
+            left: 35px;
+            position: absolute;
+            right: 35px;
+            top: 15px;
+            input {
+              display: none;
+            }
+            textarea {
+              background: transparent;
+              border: 1px solid white;
+              box-sizing: border-box;
+              color: white;
+              font-family: Poppins;
+              height: calc(100% - #{$expanded-file-list-height});
+              left: 0;
+              margin: 0;
+              padding: 15px;
+              position: absolute;
+              resize: none;
+              top: 0;
+              width: 100%;
+              z-index: 9;
+              &:focus {
+                outline: none;
+              }
+              &::placeholder {
+                color: white;
+              }
+            }
+            #evidence-input-label {
+              bottom: 0;
+              left: 0;
+              position: absolute;
+              right: 0;
+              top: 0;
+            }
+            #badge-evidence-file-list {
+              background: white;
+              bottom: 0;
+              height: $expanded-file-list-height;
+              left: 0;
+              overflow-y: auto;
+              padding-left: 5px;
+              position: absolute;
+              right: 0;
+              text-align: left;
+              .evidence-file-line {
+                .evidence-file-name {
+                  color: $rusty-background;
+                  font-family: Kanit;
+                  font-size: $evidence-file-name-size;
+                  overflow: hidden;
+                  padding-right: 30px;
+                  position: relative;
+                  text-overflow: ellipsis;                  
+                  white-space: nowrap;
+                }  
+                svg {
+                  color: $rusty-background;
+                  cursor: pointer;
+                  height: $evidence-file-name-size;
+                  position: absolute;
+                  width: $evidence-file-name-size;
+                  right: 15px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  &:hover {
+                    color: $orange;
+                  }
+                }
+              }
+            }
+          }
+          &[data-claim-code-available="true"] {
+            .enter-claim-code-wrapper {
+              display: block;
+            }
+            .badge-claim-details-divider {
+              display: block;
+            }
+            textarea {
+              height: $evidence-textarea-height;
+            }
+            .badge-evidence {
+              bottom: auto;
+              height: $badge-evidence-height;
+              top: calc(#{$badge-claim-code-box-height} + #{$badge-details-claim-divider-height} + 15px);
+              #badge-evidence-file-list {
+                top: $evidence-textarea-height;
+              }
+            }
+            #evidence-input-label {
+              bottom: auto;
+              height: $badge-evidence-height;
+            }            
+          }
         }
       }
     }
@@ -221,8 +339,15 @@ $badge-details-box-bottom-padding: 50px;
       position: absolute;
       transform: translate(-50%, 50%);
       button {
+        cursor: pointer;
         font-size: 20px;
+        line-height: 30px;
         padding-top: 5px;
+      }
+      &[data-claimed=true] {
+        button {
+          cursor: no-drop;
+        }
       }
     }
   }
