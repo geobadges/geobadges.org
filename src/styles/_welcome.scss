@@ -3,9 +3,12 @@ $home-welcome-image-break: 750px;
 #home-welcome {
     background: $white;
     height: 100vh;
-    margin-right: $menu-width;
     position: relative;
     font-family: $main-font;
+
+    @media screen and (min-width: $menu-break) {
+        margin-right: $menu-width;
+    }
     
     @media (max-width: 1100px) {
         padding-left: 25px;

@@ -8,6 +8,7 @@ import classnames from 'classnames';
 import LoginBarInput from './LoginBarInput';
 import login from '../actions/login';
 import useLoggedIn from '../hooks/useLoggedIn';
+import MenuControl from './MenuControl';
 
 const DEFAULT_USERNAME = process.env.GEOBADGES_USER || "";
 const DEFAULT_PASSWORD = process.env.GEOBADGES_PASSWORD || "";
@@ -39,6 +40,7 @@ const LoginBar = ({ }) => {
                     <div className="gb-login-bar-welcome-text-wrapper">
                         <div className="gb-login-bar-welcome-text">{text}</div>
                     </div>
+                    <MenuControl />
                 </div>
             </div>
         );
@@ -60,6 +62,7 @@ const LoginBar = ({ }) => {
                         type="password"
                         value={password}
                     />
+                    <MenuControl/>
                 </div>
             </div>
         );

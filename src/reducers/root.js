@@ -6,6 +6,7 @@ import backpack from './backpack';
 import currentBadge from './currentBadge';
 import currentIssuer from './currentIssuer';
 import badges from './badges';
+import menu from './menu';
 import message from './message';
 import issuers from './issuers';
 import user from './user';
@@ -18,6 +19,7 @@ const createRootReducer = history => combineReducers({
     currentIssuer,
     badges,
     issuers,
+    menu,
     message,
     router: connectRouter(history),
     user

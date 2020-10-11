@@ -1,11 +1,14 @@
 .page {
     background: $background-gray;
     box-sizing: border-box;
-    margin-right: $menu-width;
     min-height: 100vh;
     padding-bottom: 50px;
     padding-left: $standard-horizontal-page-padding;
     padding-right: $standard-horizontal-page-padding;
     padding-top: calc(#{$login-bar-height} + #{$page-padding-top});
     position: relative;
+
+    @media screen and (min-width: $menu-break) {
+        margin-right: $menu-width;
+    }
 }

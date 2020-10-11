@@ -11,12 +11,12 @@
     .gb-login-bar {
         background: $white;
         box-sizing: border-box;
-        height: calc(#{$login-bar-height} - 5px);
+        height: calc(#{$login-bar-height} - #{$login-bar-bottom-border-height});
         width: 100%;
         padding-bottom: 10px;
         padding-left: 50px;
         padding-top: 10px;
-
+        position: relative;
     
         svg {
             display: inline-block;
@@ -27,6 +27,20 @@
         a:hover svg {
             fill: $orange;
         }
+
+        .gb-menu-control {
+            cursor: pointer;
+            display: none;
+            float: right;
+            padding-right: 40px;
+
+            @media screen and (max-width: $menu-break) {
+                display: block;
+            }
+            &:hover {
+                fill: #008000;
+            }
+        }        
 
         .gb-login-bar-welcome-text-wrapper {
             display: inline-block;
@@ -51,6 +65,10 @@
             position: relative;
             width: 200px;
             vertical-align: top;
+
+            @media screen and (max-width: $menu-break) {
+                display: none;
+            }
     
             .gb-login-bar-input {
                 background: transparent;

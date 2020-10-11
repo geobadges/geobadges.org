@@ -7,11 +7,14 @@ footer#main-geobadges-footer {
     font-size: 12px;
     height: $footer-height;
     line-height: $footer-height;
-    padding-right: $menu-width;
     position: relative;
     text-align: center;
     vertical-align: middle;
 
+    @media screen and (min-width: $menu-break) {
+        padding-right: $menu-width;
+    }
+    
     * {
         vertical-align: middle;
     }

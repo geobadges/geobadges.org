@@ -9,10 +9,13 @@ $video-content-top: 325px;
 
 #home-video {
     position: relative;
-    margin-right: $menu-width;
     height: $home-video-height;
     background: $white;
     
+    @media screen and (min-width: $menu-break) {
+        margin-right: $menu-width;
+    }
+
     #home-video-img {
         bottom: 0;
         left: 0;
