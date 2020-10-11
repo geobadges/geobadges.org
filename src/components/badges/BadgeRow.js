@@ -1,6 +1,6 @@
-import React, { createRef, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useCounter, useEffectOnce, useMeasure, useUpdate } from "react-use";
+import { useCounter, useEffectOnce } from "react-use";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import classnames from "classnames";
@@ -24,11 +24,8 @@ const getContainerSize = () => {
 };
 
 const BadgeRow = ({ badges, title }) => {
-  const update = useUpdate();
-
-  const ref = createRef(null);
-
   const [containerSize, setContainerSize] = useState(getContainerSize());
+
   // will also re-run this because sometimes the BadgeRow will start rendering
   // before the badges page is rendered
   useEffectOnce(() => setContainerSize(getContainerSize()));
@@ -45,7 +42,12 @@ const BadgeRow = ({ badges, title }) => {
 
   const count = badges.length;
 
-  window.addEventListener("resize", update);
+  const onResize = () => {
+    // setting the container size triggers a refresh
+    setContainerSize(getContainerSize());
+  }
+
+  window.addEventListener("resize", onResize);
 
   return (
     <div className="badge-row">
