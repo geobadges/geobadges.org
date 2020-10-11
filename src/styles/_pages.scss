@@ -13,6 +13,16 @@
         padding-right: calc(#{$standard-horizontal-page-padding} / 2);
     }
 
+    @media screen and (max-width: 800px) {
+        padding-left: calc(#{$standard-horizontal-page-padding} / 3);
+        padding-right: calc(#{$standard-horizontal-page-padding} / 3);
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-left: calc(#{$standard-horizontal-page-padding} / 4);
+        padding-right: calc(#{$standard-horizontal-page-padding} / 4);
+    }
+
     @media screen and (min-width: $menu-break) {
         margin-right: $menu-width;
     }

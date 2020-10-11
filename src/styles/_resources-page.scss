@@ -46,6 +46,12 @@
         }
     }
 
+    #earnerFAQ, #issuerFAQ {
+        @media screen and (max-width: 1000px) {
+            margin-left: 0px !important;
+            max-width: 100% !important;
+        }
+    }
     
     #earnerFAQ {
         position: relative;
