@@ -165,12 +165,14 @@ $minimized-single-issuer-column-break: 600px;
       z-index: $selected-issuer-card-stack-z-index;
       .issuer-card-stack {
         height: $expanded-issuer-height;
+        max-width: 100%;
         width: $expanded-issuer-width;
         padding: 0;
         .issuer-card {
           border-radius: 20px;
           height: $expanded-issuer-height;
           left: 50%;
+          max-width: 100%;
           position: absolute;
           transform: translateX(-50%);
           width: $expanded-issuer-width;
