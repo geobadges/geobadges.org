@@ -18,7 +18,7 @@
         top: calc(#{$login-bar-height} - #{$login-bar-bottom-border-height});
         width: 100%;
         z-index: 99;
-        &[data-display-menu="true"] {
+        [data-state-menu=true] & {
             display: block;
         }
     }
