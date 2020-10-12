@@ -8,8 +8,11 @@ $expanded-issuer-name-bar-height: 75px;
 $expanded-issuer-connect-card-about-height: 75px;
 $expanded-issuer-connect-card-footer-height: 100px;
 
+$minimized-single-issuer-column-break: 600px;
+
 #issuers {
   text-align: center;
+
   .details-page-close-icon {
     margin-top: $login-bar-height;
   }
@@ -73,7 +76,9 @@ $expanded-issuer-connect-card-footer-height: 100px;
         transform: scale(1.1);
         z-index: $issuer-hover-z-index;
       }
-      @media (max-width: 600px) {
+      @media (max-width: $minimized-single-issuer-column-break) {
+        margin-left: 0;
+        margin-right: 0;
         width: 100%;
       }
       .issuer-card-stack {
@@ -81,6 +86,10 @@ $expanded-issuer-connect-card-footer-height: 100px;
         width: $minimized-issuer-width;
         padding: 0;
         position: relative;
+
+        @media (max-width: $minimized-single-issuer-column-break) {
+          margin: 0 auto;
+        }
         .issuer-card {
           height: $minimized-issuer-height;
           position: absolute;
