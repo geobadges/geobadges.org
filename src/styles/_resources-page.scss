@@ -1,3 +1,5 @@
+$remove-bg-image-break: 450px;
+
 #resources {
     background-color: $background-gray;
     font-size: 18px;
@@ -8,12 +10,48 @@
         margin-right: #{$menu-width};
         margin-top: #{$login-bar-height};
         position: relative;
+
+        @media screen and (max-width: $remove-bg-image-break) {
+            height: 250px;  
+        }
+
+        @media screen and (max-width: 650px) {
+            margin-right: 0px;          
+        }
+
         img {
             height: 85%;
             position: absolute;
             right: calc(-1200px + 33%);
             top: 50%;
             transform: translateY(-50%);
+            @media screen and (max-width: 900px) {
+                left: -1550px;
+                height: 50%;            
+            }
+            @media screen and (max-width: 775px) {
+                left: -1600px;
+                height: 50%;            
+            }
+            @media screen and (max-width: 700px) {
+                left: -1650px;
+                height: 50%;            
+            }
+            @media screen and (max-width: 650px) {
+                left: -1550px;
+                height: 50%;            
+            }
+            @media screen and (max-width: 550px) {
+                left: -1600px;
+                height: 50%;            
+            }
+            @media screen and (max-width: 500px) {
+                left: -1640px;
+                height: 50%;            
+            }
+            @media screen and (max-width: 450px) {
+                display: none;    
+            }
         }
        
         #faq-toggle {
@@ -51,6 +89,9 @@
             margin-left: 0px !important;
             max-width: 100% !important;
         }
+        @media screen and (max-width: $remove-bg-image-break) {
+            padding-top: 25px;
+        }        
     }
     
     #earnerFAQ {
