@@ -48,6 +48,7 @@ const BadgeDetails = (props) => {
   const [files, setFiles] = useState([]);
   const [textEvidence, setTextEvidence] = useState("");
   const loggedIn = useLoggedIn();
+  const [side, setSide] = useState("front");
 
   const claimed = badge?.entityId && !!backpack?.find(b => b.badgeclass === badge.entityId);
   // console.log("claimed:", claimed);
@@ -133,10 +134,16 @@ const BadgeDetails = (props) => {
     }
   }
 
+  const flipCard = () => {
+    if (side === "front") setSide("back");
+    else if (side === "back") setSide("front");
+  }
+
   return (
     <section
       id="badge"
       className={classnames({ "badge-details-active": active })}
+      data-side={side}
     >
       <div className="details-page-close-icon" onClick={close}>
         <FaTimes />
@@ -195,6 +202,7 @@ const BadgeDetails = (props) => {
           </div>}
         </div>
       </div>
+      <div className="badge-details-flip" onClick={flipCard}>Click to Flip</div>
     </section>
   );
 };

@@ -32,6 +32,16 @@ $badge-card-break: 1075px;
     perspective: 1000px;   
   }
 
+  &[data-side=back] #badge-details-card-wrapper {
+    transform: rotateY(180deg);
+  }
+
+  @media (max-width: 430px) {
+    .details-page-close-icon {
+      display: none;
+    }
+  }
+
   #badge-details-card-wrapper {
     padding: 50px;
     position: relative;
@@ -40,15 +50,12 @@ $badge-card-break: 1075px;
     @media (max-width: $badge-card-break) {
       bottom: 0;
       left: 0;
+      padding: 15px;
       position: absolute;
       top: 0;
       right: 0;
       transition: transform 0.8s;
       transform-style: preserve-3d;
-
-      &:hover {
-          transform: rotateY(180deg);
-      }
     }
 
     .badge-details-card {
@@ -386,6 +393,27 @@ $badge-card-break: 1075px;
           cursor: no-drop;
         }
       }
+    }
+  }
+  .badge-details-flip {
+    border: 5px dashed $orange;
+    bottom: 0;
+    color: $orange;
+    cursor: pointer;
+    display: none;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: bold;
+    left: 50%;
+    padding: 5px;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    @media (max-width: $badge-card-break) {
+      display: block;
+    }
+    &:hover {
+      background: $orange;
+      color: $white;
     }
   }
 }
