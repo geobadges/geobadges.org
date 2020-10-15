@@ -13,6 +13,10 @@ $close-icon-size: 20px;
     top: $login-bar-height;
     z-index: $message-bar-z-index;
 
+    @media (max-width: $menu-break) {
+        right: 0;
+    }
+
     svg {
         cursor: pointer;
         font-size: $close-icon-size;
