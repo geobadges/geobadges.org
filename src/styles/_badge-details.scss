@@ -9,6 +9,7 @@ $evidence-textarea-height: calc(.8 * #{$badge-evidence-height});
 $evidence-file-name-size: 12px;
 $expanded-file-list-height: 40px;
 $badge-card-break: 1075px;
+$badge-smaller-card-break: 600px;
 
 #badge {
   background: $background-gray;
@@ -69,6 +70,10 @@ $badge-card-break: 1075px;
       vertical-align: top;
       width: 350px;
 
+      @media (max-width: $badge-smaller-card-break) {
+        height: 475px;
+      }
+
       @media (max-width: $badge-card-break) {
         -webkit-backface-visibility: hidden; /* Safari */
         backface-visibility: hidden;
@@ -94,6 +99,9 @@ $badge-card-break: 1075px;
             transform: translate(-50%, -50%);
             z-index: 2;
             width: 90%;
+            @media (max-width: $badge-smaller-card-break) {
+              width: 70%;
+            }
         }
       }
       .badge-card-title {
