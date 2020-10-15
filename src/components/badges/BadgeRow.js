@@ -49,6 +49,8 @@ const BadgeRow = ({ badges, title }) => {
 
   window.addEventListener("resize", onResize);
 
+  const numberOfDots = Math.ceil(count / pageSize);
+
   return (
     <div className="badge-row">
       <div className="badge-row-title">{title}</div>
@@ -66,7 +68,7 @@ const BadgeRow = ({ badges, title }) => {
           offset={CARD_OFFSET}
         />
         <Dots
-          number={Math.ceil(count / pageSize)}
+          number={numberOfDots}
           onChange={setPage}
           value={page}
         />

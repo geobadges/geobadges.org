@@ -92,6 +92,7 @@ section#badges {
             }
             
             .BrainhubCarousel__dots {
+                overflow-x: scroll;
                 .BrainhubCarousel__dot {
                     background: none;
                     &:hover:before {
