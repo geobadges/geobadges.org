@@ -10,6 +10,9 @@ $evidence-file-name-size: 12px;
 $expanded-file-list-height: 40px;
 $badge-card-break: 1075px;
 $badge-smaller-card-break: 600px;
+$badge-details-min-padding: 15px;
+$badge-details-small-height: 450px;
+$badge-details-normal-height: 550px;
 
 #badge {
   background: $background-gray;
@@ -51,7 +54,7 @@ $badge-smaller-card-break: 600px;
     @media (max-width: $badge-card-break) {
       bottom: 0;
       left: 0;
-      padding: 15px;
+      padding: $badge-details-min-padding;
       position: absolute;
       top: 0;
       right: 0;
@@ -62,16 +65,17 @@ $badge-smaller-card-break: 600px;
     .badge-details-card {
       box-shadow: 4px 4px 4px rgba($dark-gray, 0.25);
       display: inline-block;
-      height: 550px;
+      height: $badge-details-normal-height;
       margin-right: 20px;
       max-height: calc(100vh - (#{$login-bar-height} + 50px + 50px));
+      max-width: 95%;
       position: relative;
       text-align: center;
       vertical-align: top;
       width: 350px;
 
       @media (max-width: $badge-smaller-card-break) {
-        height: 475px;
+        height: $badge-details-small-height;
       }
 
       @media (max-width: $badge-card-break) {
@@ -405,7 +409,7 @@ $badge-smaller-card-break: 600px;
   }
   .badge-details-flip {
     border: 5px dashed $orange;
-    bottom: 0;
+    // bottom: 0;
     color: $orange;
     cursor: pointer;
     display: none;
@@ -415,9 +419,15 @@ $badge-smaller-card-break: 600px;
     left: 50%;
     padding: 5px;
     position: absolute;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
+
+
     @media (max-width: $badge-card-break) {
       display: block;
+      top: calc(#{$badge-details-min-padding} + #{$badge-details-normal-height} + 10px);
+    }
+    @media (max-width: $badge-smaller-card-break) {
+      top: calc(#{$badge-details-min-padding} + #{$badge-details-small-height} + 10px);
     }
     &:hover {
       background: $orange;
