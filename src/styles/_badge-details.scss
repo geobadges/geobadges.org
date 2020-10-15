@@ -8,6 +8,7 @@ $badge-evidence-height: 170px;
 $evidence-textarea-height: calc(.8 * #{$badge-evidence-height});
 $evidence-file-name-size: 12px;
 $expanded-file-list-height: 40px;
+$badge-card-break: 1075px;
 
 #badge {
   background: $background-gray;
@@ -23,10 +24,33 @@ $expanded-file-list-height: 40px;
     transform: none;
   }
 
+  @media (max-width: $menu-break) {
+    right: 0;
+  }
+
+  @media (max-width: $badge-card-break) {
+    perspective: 1000px;   
+  }
+
   #badge-details-card-wrapper {
     padding: 50px;
     position: relative;
     text-align: center;
+
+    @media (max-width: $badge-card-break) {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+
+      &:hover {
+          transform: rotateY(180deg);
+      }
+    }
+
     .badge-details-card {
       box-shadow: 4px 4px 4px rgba($dark-gray, 0.25);
       display: inline-block;
@@ -37,6 +61,16 @@ $expanded-file-list-height: 40px;
       text-align: center;
       vertical-align: top;
       width: 350px;
+
+      @media (max-width: $badge-card-break) {
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        margin-left: 0;
+        margin-right: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
     #badge-details-card-front {
       background: $rusty-background;
@@ -94,6 +128,9 @@ $expanded-file-list-height: 40px;
     #badge-details-card-back {
       background: $light-gray;
       background-image: linear-gradient(#F6F6F6, #D7CDCC);
+      @media (max-width: $badge-card-break) {
+        transform: translateX(-50%) rotateY(180deg);
+      }
       #badge-details-card-tabs {
         font-family: $main-font;
         height: 50px;
