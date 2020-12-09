@@ -1,4 +1,6 @@
 /*
+  Taken from: https://github.com/GSA/code-gov-front-end/blob/master/src/sync-store.js
+
   This file allows you to add syncers (a.k.a. triggers) for your Redux store.
   Syncers is actually an anti-pattern and should be generally discouraged.
   However, several factors made the creation of syncers an unfortunate necessity.
