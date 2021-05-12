@@ -102,7 +102,7 @@
     "netlify-cli": "^2.51.0",
     "offline-plugin": "^5.0.7",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss": "^7.0.28",
+    "postcss": "^8.2.10",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.0.0",
     "postcss-sort-media-queries": "^1.4.24",
